@@ -1,0 +1,46 @@
+@import "~bootstrap/scss/bootstrap";
+
+$primary: #4b4b4b;
+$secondary: #fae60c;
+$third: #d412fa;
+
+
+body {
+    background-color: $primary;
+}
+
+h1 {
+    text-align: center;
+    color: $secondary;
+}
+
+h2 {
+    color: $third;
+}
+
+
+
+.nav {
+    display: flex;
+    justify-content: center;
+
+    & .navbar-brand {
+        padding: 5px 15px;
+    }
+    & .dropdown {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+
+}
+
+.actors {
+    display: flex;
+    justify-content: space-around;
+    & .actor {
+        text-align: center;
+    }
+    & .actor img{
+        width: 500px;
+    }
+}

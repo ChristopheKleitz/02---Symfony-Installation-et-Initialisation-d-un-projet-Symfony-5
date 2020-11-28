@@ -16,4 +16,12 @@ class ProgramController extends AbstractController
     {
         return $this->render('program/index.html.twig', ['website' => 'Wild Series']);
     }
+
+    /**
+     * @Route("/actors/", name="actor_index")
+     */
+    public function actors(): Response
+    {
+        return $this->render('program/actors.html.twig', ['website' => 'Wild Series']);
+    }
 }
