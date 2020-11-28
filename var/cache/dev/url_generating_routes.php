@@ -15,7 +15,8 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'actor_index' => [[], ['_controller' => 'App\\Controller\\ActorController::index'], [], [['text', '/actors/']], [], []],
     'app_index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
     'program_index' => [[], ['_controller' => 'App\\Controller\\ProgramController::index'], [], [['text', '/programs/']], [], []],
-    'actor_index' => [[], ['_controller' => 'App\\Controller\\ProgramController::actors'], [], [['text', '/actors/']], [], []],
+    'program_show' => [['id'], ['id' => 1, '_controller' => 'App\\Controller\\ProgramController::show'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/programs']], [], []],
 ];
