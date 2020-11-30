@@ -190,3 +190,8 @@ cbbf0d,127.0.0.1,GET,http://localhost:8000/actors/,1606561571,,200
 5d4247,127.0.0.1,GET,http://localhost:8000/actors/,1606561577,,200
 1783dc,127.0.0.1,GET,http://localhost:8000/actors/,1606561661,,200
 e44b3c,127.0.0.1,GET,http://localhost:8000/,1606561666,,200
+c9267c,127.0.0.1,GET,http://localhost:8000/programs/,1606561729,,200
+ab4d4a,127.0.0.1,GET,http://localhost:8000/programs/quatre,1606561731,077313,404
+077313,127.0.0.1,GET,http://localhost:8000/programs/quatre,1606561731,,404
+babafb,127.0.0.1,GET,http://localhost:8000/programs/4,1606561759,86f3a3,405
+86f3a3,127.0.0.1,POST,http://localhost:8000/programs/4,1606561759,,405
