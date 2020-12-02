@@ -48,7 +48,7 @@ class __TwigTemplate_8de688684490e56f71cd6db2e183a3ca24b792737806881fb8216f6aeb5
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <link rel=\"icon\" href=\"../assets/images/tv_icon.ico\"/>
+        <link rel=\"icon\" href=\"/build/tv_icon.ico\"/>
         <title>";
         // line 6
         $this->displayBlock('title', $context, $blocks);
@@ -187,7 +187,7 @@ class __TwigTemplate_8de688684490e56f71cd6db2e183a3ca24b792737806881fb8216f6aeb5
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <link rel=\"icon\" href=\"../assets/images/tv_icon.ico\"/>
+        <link rel=\"icon\" href=\"/build/tv_icon.ico\"/>
         <title>{% block title %}Wild Series{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

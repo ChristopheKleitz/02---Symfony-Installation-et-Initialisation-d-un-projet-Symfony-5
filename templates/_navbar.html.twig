@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="container-fluid nav">
         <a class="navbar-brand" href="/"><img src="{{ asset('build/wild_series_logo.png') }}" alt="logo"/>Wild Series</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,9 +16,9 @@
                             Category
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Sci-Fi</a>
-                            <a class="dropdown-item" href="#">Romance</a>
+                            <a class="dropdown-item" href="{{ path("category_index") }}">Action</a>
+                            <a class="dropdown-item" href="{{ path("category_index") }}">Sci-Fi</a>
+                            <a class="dropdown-item" href="{{ path("category_index") }}">Romance</a>
                         </div>
                     </div>
                 </li>

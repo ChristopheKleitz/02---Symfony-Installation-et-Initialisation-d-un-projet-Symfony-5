@@ -12,13 +12,28 @@ body {
 h1 {
     text-align: center;
     color: $secondary;
+    margin: 50px;
 }
 
 h2 {
     color: $third;
 }
 
-
+.program_index {
+    justify-content: space-around;
+    & .program {
+        width: 550px;
+        margin-bottom: 20px;
+    }
+    & .poster {
+        width: 550px;
+        height: 750px;
+    }
+    & .description {
+        background-color: #b1b1b1;
+        width: 550px;
+    }
+}
 
 .nav {
     display: flex;
@@ -30,8 +45,6 @@ h2 {
     & .dropdown {
         color: rgba(255, 255, 255, 0.5);
     }
-
-
 }
 
 .actors {
@@ -42,5 +55,16 @@ h2 {
     }
     & .actor img{
         width: 500px;
+    }
+}
+
+.media-body {
+    color: $third;
+}
+
+.categories {
+    text-align: center;
+    & .category {
+        margin: 25px;
     }
 }

@@ -40,7 +40,7 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_navbar.html.twig"));
 
         // line 1
-        echo "<nav class=\"navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light\">
+        echo "<nav class=\"navbar navbar-dark bg-dark navbar-expand-lg\">
     <div class=\"container-fluid nav\">
         <a class=\"navbar-brand\" href=\"/\"><img src=\"";
         // line 3
@@ -61,9 +61,18 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
                             Category
                         </button>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
-                            <a class=\"dropdown-item\" href=\"#\">Action</a>
-                            <a class=\"dropdown-item\" href=\"#\">Sci-Fi</a>
-                            <a class=\"dropdown-item\" href=\"#\">Romance</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">Action</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">Sci-Fi</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_index");
+        echo "\">Romance</a>
                         </div>
                     </div>
                 </li>
@@ -98,12 +107,12 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
 
     public function getDebugInfo()
     {
-        return array (  47 => 3,  43 => 1,);
+        return array (  74 => 21,  70 => 20,  66 => 19,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<nav class=\"navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light\">
+        return new Source("<nav class=\"navbar navbar-dark bg-dark navbar-expand-lg\">
     <div class=\"container-fluid nav\">
         <a class=\"navbar-brand\" href=\"/\"><img src=\"{{ asset('build/wild_series_logo.png') }}\" alt=\"logo\"/>Wild Series</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -121,9 +130,9 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
                             Category
                         </button>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
-                            <a class=\"dropdown-item\" href=\"#\">Action</a>
-                            <a class=\"dropdown-item\" href=\"#\">Sci-Fi</a>
-                            <a class=\"dropdown-item\" href=\"#\">Romance</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"category_index\") }}\">Action</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"category_index\") }}\">Sci-Fi</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"category_index\") }}\">Romance</a>
                         </div>
                     </div>
                 </li>

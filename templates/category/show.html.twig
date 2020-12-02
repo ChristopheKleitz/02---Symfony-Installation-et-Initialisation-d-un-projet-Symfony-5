@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ category.name}}
+{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1> {{ category.name }}</h1>
+
+    <div class="container-fluid">
+        <div class="row program_index">
+            {% for program in programs %}
+                <div class="col-lg-4 col-md-6 program">
+                    <a href="{{ path("program_show", { id: program.id }) }}">
+                        <img class="poster" src="{{ program.poster }}" alt="Affiche {{ program.title }}">
+                    </a>
+                    <div class="description">
+                        <h2 class="title">{{ loop.index }}/ {{ program.title }}</h2>
+                        <p>{{ program.summary}}</p>
+                        <a href="{{ path("program_show", { id: program.id }) }}">
+                            Voir la fiche
+                        </a>
+                    </div>
+                </div>
+            {% else %}
+                <h2>
+                    Aucune série trouvée.
+                </h2>
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="{{ path('category_index') }}">
+        Retour à la liste des catégorie
+    </a>
+
+{% endblock %}

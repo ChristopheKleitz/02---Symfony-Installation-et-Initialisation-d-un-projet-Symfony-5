@@ -8,15 +8,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/{id}',
+                '/show/{id<^[0-9]+$>}',
             ],
             'name' => [
                 'show',
-            ],
-            'requirements' => [
-                [
-                    'id' => '\\d+',
-                ],
             ],
             'methods' => [
                 [
