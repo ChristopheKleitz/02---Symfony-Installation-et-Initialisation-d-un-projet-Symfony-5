@@ -22,14 +22,17 @@
             <div>
                 <br>
                 Liste des épisodes:
-                <div class="tab">
+                <div class="tab"><br>
                     {% for episode in episodes %}
                         Episode {{ episode.number }}: {{ episode.title }} <br>
+                        <a class="tab" href="{{ path('program_episode_show', {program: program.id, season: season.number, episode: episode.number}) }}">
+                            Voir la fiche de l'épisode
+                        </a><br>
                     {% endfor %}
                 </div>
             </div>
             <div class="retour">
-                <br><br><br>
+                <br><br>
                 <a href="{{ path('program_show', {id : program.id}) }}">
                     Retour à la fiche du programme
                 </a>

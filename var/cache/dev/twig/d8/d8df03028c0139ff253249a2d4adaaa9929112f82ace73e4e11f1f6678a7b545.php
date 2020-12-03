@@ -143,7 +143,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
             echo "            <p>
                 <a href=\"";
             // line 21
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["programId" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "seasonId" => twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 21)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "season" => twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 21)]), "html", null, true);
             echo "\">
                     Saison ";
             // line 22
@@ -213,7 +213,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
             <p> Catégorie: {{ program.category.name }} </p>
             {% for season in seasons %}
             <p>
-                <a href=\"{{ path('program_season_show', {programId : program.id, seasonId : season.number}) }}\">
+                <a href=\"{{ path('program_season_show', {program : program.id, season : season.number}) }}\">
                     Saison {{ season.number }}
                 </a>
             </p>

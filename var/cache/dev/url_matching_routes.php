@@ -38,7 +38,10 @@ return [
                 .'|/categories/([^/]++)(*:189)'
                 .'|/programs/(?'
                     .'|show/([0-9]+)(*:223)'
-                    .'|([^/]++)/seasons/([^/]++)(*:256)'
+                    .'|([^/]++)/seasons/([^/]++)(?'
+                        .'|(*:259)'
+                        .'|/episode/([^/]++)(*:284)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -52,8 +55,9 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         189 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::show'], ['categoryName'], null, null, false, true, null]],
         223 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        256 => [
-            [['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['programId', 'seasonId'], null, null, false, true, null],
+        259 => [[['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['program', 'season'], null, null, false, true, null]],
+        284 => [
+            [['_route' => 'program_episode_show', '_controller' => 'App\\Controller\\ProgramController::showEpisode'], ['program', 'season', 'episode'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
