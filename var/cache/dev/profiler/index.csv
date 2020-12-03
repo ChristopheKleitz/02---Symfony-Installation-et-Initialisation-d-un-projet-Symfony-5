@@ -982,3 +982,4 @@ b30a8d,127.0.0.1,GET,http://localhost:8000/programs/,1607035002,,200
 5dd0eb,127.0.0.1,GET,http://localhost:8000/programs/show/2,1607035003,,200
 cb150a,127.0.0.1,GET,http://localhost:8000/programs/2/seasons/1,1607035006,,200
 f0b207,127.0.0.1,GET,http://localhost:8000/programs/2/seasons/1/episode/6,1607035010,,200
+3aa730,127.0.0.1,GET,http://localhost:8000/,1607035563,,200

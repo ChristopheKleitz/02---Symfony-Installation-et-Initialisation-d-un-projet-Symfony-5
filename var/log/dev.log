@@ -4953,3 +4953,5 @@
 [2020-12-03T23:36:50.035123+01:00] doctrine.DEBUG: SELECT t0.id AS id_1, t0.title AS title_2, t0.number AS number_3, t0.synopsis AS synopsis_4, t0.season_id AS season_id_5 FROM episode t0 WHERE t0.season_id = ? AND t0.number = ? LIMIT 1 [1,6] []
 [2020-12-03T23:36:50.048796+01:00] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2020-12-03T23:36:50.249388+01:00] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"f0b207"},"request_uri":"http://localhost:8000/_wdt/f0b207","method":"GET"} []
+[2020-12-03T23:46:03.146328+01:00] request.INFO: Matched route "app_index". {"route":"app_index","route_parameters":{"_route":"app_index","_controller":"App\\Controller\\DefaultController::index"},"request_uri":"http://localhost:8000/","method":"GET"} []
+[2020-12-03T23:46:03.155724+01:00] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
