@@ -11,6 +11,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'targetEntity' => [
                 'App\\Entity\\Category',
             ],
+            'inversedBy' => [
+                'programs',
+            ],
             'nullable' => [
                 1 => false,
             ],

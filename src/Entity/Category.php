@@ -40,4 +40,53 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @ORM\OneToMany (targetEntity=Program::class, mappedBy="category")
+     */
+    private $programs;
+
+    public function __construct()
+    {
+        $this->programs= new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPrograms(): ArrayCollection
+    {
+        return $this->programs;
+    }
+
+    /**+
+     * param Program $program
+     * @return Category
+     */
+    public function addProgram(Program $program): self
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs[] = $program;
+            $program->setCategory($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @param Program $program
+     * @return Category
+     */
+
+    public function removeProgram(Program $program): self
+    {
+        if ($this->programs->contains($program)) {
+            $this->programs->removeElement($program);
+            // set the owning side to null (unless already changed)
+            if ($program->getCategory() === $this) {
+                $program->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
 }

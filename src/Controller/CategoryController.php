@@ -50,9 +50,7 @@ class CategoryController extends AbstractController
             ->findBy(['category' => $category], ['id' => 'DESC'],3);
 
         if(!$category) {
-            throw $this->createNotFoundException(
-                'No category with '.$categoryName.' found in category\'s table.'
-            );
+            return $this->render('error.html.twig');
         }
 
         return $this->render('category/show.html.twig',

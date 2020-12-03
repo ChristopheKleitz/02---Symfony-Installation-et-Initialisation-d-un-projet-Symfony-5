@@ -36,7 +36,10 @@ return [
                     .')'
                 .')'
                 .'|/categories/([^/]++)(*:189)'
-                .'|/programs/show/([0-9]+)(*:220)'
+                .'|/programs/(?'
+                    .'|show/([0-9]+)(*:223)'
+                    .'|([^/]++)/seasons/([^/]++)(*:256)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -48,8 +51,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         189 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::show'], ['categoryName'], null, null, false, true, null]],
-        220 => [
-            [['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['id'], ['GET' => 0], null, false, true, null],
+        223 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        256 => [
+            [['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['programId', 'seasonId'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Error 404
+{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Oups...
+    </h1>
+    <div class="error">
+        <img src="{{ asset('build/oups.gif') }}" alt="Oups..">
+        <p>
+            On dirait que tu as saisi une mauvaise catégorie ou un mauvais nom de série. <br>
+            Vérifie ton orthographe et si tu ne trouve toujours rien envoie nous une demande pour que nous ajoutions ta
+            série à notre base de données.
+        </p>
+        <p>
+            En attendant pourquoi ne pas en profiter pour découvrir notre catalogue ? <br>
+            Retour à la liste
+            <a href="{{ path('category_index') }}">
+                des catégories
+            </a> |
+            <a href="{{ path('program_index') }}">
+                des programmes
+            </a>
+        </p>
+    </div>
+
+{% endblock %}

@@ -21,4 +21,5 @@ return [
     'app_index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
     'program_index' => [[], ['_controller' => 'App\\Controller\\ProgramController::index'], [], [['text', '/programs/']], [], []],
     'program_show' => [['id'], ['_controller' => 'App\\Controller\\ProgramController::show'], ['id' => '[0-9]+'], [['variable', '/', '[0-9]+', 'id', true], ['text', '/programs/show']], [], []],
+    'program_season_show' => [['programId', 'seasonId'], ['_controller' => 'App\\Controller\\ProgramController::showSeason'], [], [['variable', '/', '[^/]++', 'seasonId', true], ['text', '/seasons'], ['variable', '/', '[^/]++', 'programId', true], ['text', '/programs']], [], []],
 ];
