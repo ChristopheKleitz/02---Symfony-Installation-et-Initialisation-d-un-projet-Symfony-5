@@ -157,11 +157,15 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['season'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 26
-        echo "            <a href=\"";
+        echo "            <div class=\"retour\">
+                <a href=\"";
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_index");
         echo "\">
-                Retour à la liste des programmes
-            </a>
+                    Retour à la liste des programmes
+                </a>
+            </div>
+
         </div>
     </div>
 
@@ -188,7 +192,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
 
     public function getDebugInfo()
     {
-        return array (  160 => 26,  150 => 22,  146 => 21,  143 => 20,  139 => 19,  135 => 18,  131 => 17,  127 => 16,  120 => 14,  116 => 12,  106 => 11,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  163 => 27,  160 => 26,  150 => 22,  146 => 21,  143 => 20,  139 => 19,  135 => 18,  131 => 17,  127 => 16,  120 => 14,  116 => 12,  106 => 11,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -218,9 +222,12 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
                 </a>
             </p>
             {% endfor %}
-            <a href=\"{{ path('program_index') }}\">
-                Retour à la liste des programmes
-            </a>
+            <div class=\"retour\">
+                <a href=\"{{ path('program_index') }}\">
+                    Retour à la liste des programmes
+                </a>
+            </div>
+
         </div>
     </div>
 

@@ -114,7 +114,7 @@ class __TwigTemplate_887d63422222df5a8b5de2be7f596e886aaee4cfb06ea9a19a82d70f2a5
         echo "
     <h1>Toutes les séries de la table Program</h1>
     <div class=\"container-fluid\">
-        <div class=\"row program_index\">
+        <div class=\"row index\">
     ";
         // line 16
         $context['_parent'] = $context;
@@ -193,12 +193,15 @@ class __TwigTemplate_887d63422222df5a8b5de2be7f596e886aaee4cfb06ea9a19a82d70f2a5
         echo "        </div>
     </div>
 
-    <a href=\"";
-        // line 36
+    <div class=\"retour\">
+        <a href=\"";
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\">
-        Retour à l'acceuil
-    </a>
+            Retour à l'acceuil
+        </a>
+    </div>
+
 
 ";
         
@@ -221,7 +224,7 @@ class __TwigTemplate_887d63422222df5a8b5de2be7f596e886aaee4cfb06ea9a19a82d70f2a5
 
     public function getDebugInfo()
     {
-        return array (  198 => 36,  193 => 33,  186 => 31,  167 => 25,  163 => 24,  159 => 23,  153 => 22,  145 => 19,  141 => 18,  138 => 17,  120 => 16,  114 => 12,  104 => 11,  91 => 8,  81 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  199 => 37,  193 => 33,  186 => 31,  167 => 25,  163 => 24,  159 => 23,  153 => 22,  145 => 19,  141 => 18,  138 => 17,  120 => 16,  114 => 12,  104 => 11,  91 => 8,  81 => 7,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -240,7 +243,7 @@ class __TwigTemplate_887d63422222df5a8b5de2be7f596e886aaee4cfb06ea9a19a82d70f2a5
 
     <h1>Toutes les séries de la table Program</h1>
     <div class=\"container-fluid\">
-        <div class=\"row program_index\">
+        <div class=\"row index\">
     {% for program in programs %}
         <div class=\"col-lg-4 program\">
             <a href=\"{{ path(\"program_show\", { id: program.id }) }}\">
@@ -261,9 +264,12 @@ class __TwigTemplate_887d63422222df5a8b5de2be7f596e886aaee4cfb06ea9a19a82d70f2a5
         </div>
     </div>
 
-    <a href=\"{{ path('app_index') }}\">
-        Retour à l'acceuil
-    </a>
+    <div class=\"retour\">
+        <a href=\"{{ path('app_index') }}\">
+            Retour à l'acceuil
+        </a>
+    </div>
+
 
 {% endblock %}", "program/index.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/program/index.html.twig");
     }

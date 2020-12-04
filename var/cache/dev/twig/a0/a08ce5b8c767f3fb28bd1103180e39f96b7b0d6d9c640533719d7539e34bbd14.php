@@ -113,11 +113,12 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
         // line 12
         echo "
     <h1>Toutes les catégories de la table Category</h1>
-    <div class=\"categories\">
+    <div class=\"categories container-fluid\">
+        <div class=\"row index\">
             ";
-        // line 15
+        // line 16
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 15, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 16, $this->source); })()));
         $context['_iterated'] = false;
         $context['loop'] = [
           'parent' => $context['_parent'],
@@ -133,19 +134,19 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 16
-            echo "                <div class=\"category\">
+            // line 17
+            echo "                <div class=\"category col-lg-3 col-md-6 col\">
                     <h2>
                         ";
-            // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 18), "html", null, true);
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 19), "html", null, true);
             echo "/ ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 18), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 19), "html", null, true);
             echo "
                     </h2>
                     <a href=\"";
-            // line 20
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["categoryName" => twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 20)]), "html", null, true);
+            // line 21
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", ["categoryName" => twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 21)]), "html", null, true);
             echo "\">
                         Voir les séries de cette catégorie
                     </a>
@@ -163,22 +164,26 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
             }
         }
         if (!$context['_iterated']) {
-            // line 26
+            // line 27
             echo "                Aucune catégorie trouvée.
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
-        echo "    </div>
+        // line 29
+        echo "        </div>
+    </div>
 
-    <a href=\"";
-        // line 30
+    <div class=\"retour\">
+        <a href=\"";
+        // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\">
-        Retour à l'acceuil
-    </a>
+            Retour à l'acceuil
+        </a>
+    </div>
+
 
 ";
         
@@ -201,7 +206,7 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
 
     public function getDebugInfo()
     {
-        return array (  178 => 30,  174 => 28,  167 => 26,  148 => 20,  141 => 18,  137 => 16,  119 => 15,  114 => 12,  104 => 11,  91 => 8,  81 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  181 => 33,  175 => 29,  168 => 27,  149 => 21,  142 => 19,  138 => 17,  120 => 16,  114 => 12,  104 => 11,  91 => 8,  81 => 7,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -219,9 +224,10 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
 {% block body %}
 
     <h1>Toutes les catégories de la table Category</h1>
-    <div class=\"categories\">
+    <div class=\"categories container-fluid\">
+        <div class=\"row index\">
             {% for category in categories %}
-                <div class=\"category\">
+                <div class=\"category col-lg-3 col-md-6 col\">
                     <h2>
                         {{ loop.index }}/ {{ category.name }}
                     </h2>
@@ -233,11 +239,15 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
             {% else %}
                 Aucune catégorie trouvée.
             {% endfor %}
+        </div>
     </div>
 
-    <a href=\"{{ path('app_index') }}\">
-        Retour à l'acceuil
-    </a>
+    <div class=\"retour\">
+        <a href=\"{{ path('app_index') }}\">
+            Retour à l'acceuil
+        </a>
+    </div>
+
 
 {% endblock %}", "category/index.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/category/index.html.twig");
     }
