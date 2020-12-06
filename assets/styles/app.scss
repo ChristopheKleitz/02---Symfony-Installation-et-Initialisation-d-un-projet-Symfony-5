@@ -32,6 +32,16 @@ h2 {
     & .description {
         background-color: #b1b1b1;
         width: 550px;
+        height: 200px;
+
+        > p {
+            //white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
     }
 }
 
@@ -92,3 +102,32 @@ h2 {
         color: $third;
     }
 }
+
+thead {
+    color: $third;
+    & .action {
+        width: 100px;
+    }
+    & .title {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+tbody {
+    color: white;
+    & .title {
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    & label, button {
+        color: white;
+    }
+}
+

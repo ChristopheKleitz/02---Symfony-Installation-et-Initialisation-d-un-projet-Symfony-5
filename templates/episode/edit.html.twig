@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edit Episode{% endblock %}
+
+{% block stylesheet %} {{ parent() }} {% endblock %}
+
+{% block body %}
+    <h1>Edit Episode</h1>
+
+    <div class="center container-fluid">
+        <div class="col-lg-3">
+            <h2>
+                {{ episode.season.program.title }}
+            </h2>
+            {{ include('episode/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+            {{ include('episode/_delete_form.html.twig') }}
+        </div>
+
+
+    </div>
+
+    <div class="retour">
+        <a href="{{ path('episode_index') }}">Retour à l'index des épisodes</a>
+    </div>
+{% endblock %}

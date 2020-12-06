@@ -128,7 +128,7 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "title", [], "any", false, false, false, 16), "html", null, true);
         echo " </h1>
-            <h1 class=\"mt-2\"> Saison ";
+            <h1> Saison ";
         // line 17
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 17, $this->source); })()), "number", [], "any", false, false, false, 17), "html", null, true);
         echo " </h1>
@@ -207,7 +207,7 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
         <img class=\"align-self-start mr-3\" src=\"{{ program.poster }}\" alt=\"{{ program.title }} poster\">
         <div class=\"media-body\">
             <h1 class=\"mt-0\"> {{ program.title }} </h1>
-            <h1 class=\"mt-2\"> Saison {{ season.number }} </h1>
+            <h1> Saison {{ season.number }} </h1>
             <div class=\"text-white\">
                 Date de diffusion: {{ season.year }} <br>
                 {{ season.description }}

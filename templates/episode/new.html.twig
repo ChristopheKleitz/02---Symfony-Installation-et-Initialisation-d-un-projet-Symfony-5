@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}New Episode{% endblock %}
+
+{% block body %}
+    <h1>Create new Episode</h1>
+
+    <div class="center container-fluid">
+        <div class="col-lg-3">
+            {{ include('episode/_form.html.twig', {'button_label': 'Ajouter l\'épisode'}) }}
+        </div>
+    </div>
+
+    <div class="retour">
+        <a href="{{ path('episode_index') }}">Retour à l'index des épisodes</a>
+    </div>
+{% endblock %}
