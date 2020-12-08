@@ -46,6 +46,9 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "program/new.html.twig"));
 
+        // line 3
+        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 3, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
+        // line 1
         $this->parent = $this->loadTemplate("base.html.twig", "program/new.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
@@ -56,7 +59,7 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
 
     }
 
-    // line 3
+    // line 5
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -66,7 +69,7 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 4
+        // line 6
         echo "    ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
@@ -79,7 +82,7 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
 
     }
 
-    // line 7
+    // line 9
     public function block_stylesheet($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -89,7 +92,7 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
 
-        // line 8
+        // line 10
         echo "    ";
         $this->displayParentBlock("stylesheet", $context, $blocks);
         echo "
@@ -102,7 +105,7 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
 
     }
 
-    // line 11
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -112,24 +115,30 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 12
+        // line 14
         echo "
     <h1> Envie d'ajouter une nouvelle série ?</h1>
 
-    <div class=\"ajout\">
+    <div class=\"center container-fluid\">
+    <div class=\"col-lg-3\">
         ";
-        // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_start');
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_start');
         echo "
         ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'widget');
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'errors');
+        echo "
+        ";
+        // line 21
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), 'widget');
         echo "
         <input type='submit' value='Ajouter !'>
         ";
-        // line 19
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_end');
+        // line 23
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
         echo "
+    </div>
     </div>
 
 ";
@@ -153,12 +162,14 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
 
     public function getDebugInfo()
     {
-        return array (  131 => 19,  126 => 17,  122 => 16,  116 => 12,  106 => 11,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  139 => 23,  134 => 21,  130 => 20,  126 => 19,  119 => 14,  109 => 13,  96 => 10,  86 => 9,  73 => 6,  63 => 5,  52 => 1,  50 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"base.html.twig\" %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}
     {{ parent() }}
@@ -172,11 +183,14 @@ class __TwigTemplate_beafaefbb972be8b424efc8290f74c6f2071f7e3cadd9438c8ea63722f5
 
     <h1> Envie d'ajouter une nouvelle série ?</h1>
 
-    <div class=\"ajout\">
+    <div class=\"center container-fluid\">
+    <div class=\"col-lg-3\">
         {{ form_start(form) }}
+        {{ form_errors(form) }}
         {{ form_widget(form) }}
         <input type='submit' value='Ajouter !'>
         {{ form_end(form) }}
+    </div>
     </div>
 
 {% endblock %}", "program/new.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/program/new.html.twig");

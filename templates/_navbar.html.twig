@@ -25,6 +25,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/actors">Actors</a>
                 </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ path("program_new") }}">Ajouter une série</a>
+                            <a class="dropdown-item" href="{{ path("season_new") }}">Ajouter une saison</a>
+                            <a class="dropdown-item" href="{{ path("episode_new") }}">Ajouter un épisode</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">

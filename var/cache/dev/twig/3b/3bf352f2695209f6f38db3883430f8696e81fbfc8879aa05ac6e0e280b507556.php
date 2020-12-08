@@ -88,7 +88,7 @@ class __TwigTemplate_c8f27366139c496b4a48a6b40745dfe2ae5ba5321fee3db71f11d35926a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <h1>Create new Season</h1>
+        echo "    <h1>Ajouter une nouvelle saison</h1>
 
     <div class=\"center container-fluid\">
         <div class=\"col-lg-3\">
@@ -138,7 +138,7 @@ class __TwigTemplate_c8f27366139c496b4a48a6b40745dfe2ae5ba5321fee3db71f11d35926a
 {% block title %}New Season{% endblock %}
 
 {% block body %}
-    <h1>Create new Season</h1>
+    <h1>Ajouter une nouvelle saison</h1>
 
     <div class=\"center container-fluid\">
         <div class=\"col-lg-3\">

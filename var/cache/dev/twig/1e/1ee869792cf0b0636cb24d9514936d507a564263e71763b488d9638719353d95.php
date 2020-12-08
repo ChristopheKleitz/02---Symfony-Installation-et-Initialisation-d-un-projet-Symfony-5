@@ -88,7 +88,7 @@ class __TwigTemplate_298c424a50e60aa50604ccc51816e44b9e36303a4820001b2b67ea3de0d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <h1>Create new Episode</h1>
+        echo "    <h1>Un nouvel épisode est sorti ?</h1>
 
     <div class=\"center container-fluid\">
         <div class=\"col-lg-3\">
@@ -138,7 +138,7 @@ class __TwigTemplate_298c424a50e60aa50604ccc51816e44b9e36303a4820001b2b67ea3de0d
 {% block title %}New Episode{% endblock %}
 
 {% block body %}
-    <h1>Create new Episode</h1>
+    <h1>Un nouvel épisode est sorti ?</h1>
 
     <div class=\"center container-fluid\">
         <div class=\"col-lg-3\">

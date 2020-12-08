@@ -79,6 +79,27 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/actors\">Actors</a>
                 </li>
+                <li class=\"nav-item\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn dropdown dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Admin
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item\" href=\"";
+        // line 34
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_new");
+        echo "\">Ajouter une série</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 35
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("season_new");
+        echo "\">Ajouter une saison</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 36
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_new");
+        echo "\">Ajouter un épisode</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
             <form class=\"form-inline my-2 my-lg-0\">
                 <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\">
@@ -113,7 +134,7 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
 
     public function getDebugInfo()
     {
-        return array (  74 => 21,  70 => 20,  66 => 19,  47 => 3,  43 => 1,);
+        return array (  98 => 36,  94 => 35,  90 => 34,  74 => 21,  70 => 20,  66 => 19,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -144,6 +165,18 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
                 </li>
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/actors\">Actors</a>
+                </li>
+                <li class=\"nav-item\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn dropdown dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Admin
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item\" href=\"{{ path(\"program_new\") }}\">Ajouter une série</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"season_new\") }}\">Ajouter une saison</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"episode_new\") }}\">Ajouter un épisode</a>
+                        </div>
+                    </div>
                 </li>
             </ul>
             <form class=\"form-inline my-2 my-lg-0\">

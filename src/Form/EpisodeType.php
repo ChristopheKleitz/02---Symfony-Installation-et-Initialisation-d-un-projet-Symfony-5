@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Episode;
+use App\Entity\Program;
+use App\Entity\Season;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,10 +18,18 @@ class EpisodeType extends AbstractType
         $builder
             ->add('title')
             ->add('number')
-            ->add('synopsis', null, ['attr' =>
-                ['rows' => 8,
-                 ]])
-            ->add('season', null, ['choice_label' => 'number'])
+            ->add('synopsis', null,
+                ['attr' =>
+                    [
+                    'rows' => 8,
+                    ]
+                ])
+            ->add('season', EntityType::class,
+                [
+                    'class' => Season::class,
+                    'choice_label' => 'number'
+
+                ])
         ;
     }
 
