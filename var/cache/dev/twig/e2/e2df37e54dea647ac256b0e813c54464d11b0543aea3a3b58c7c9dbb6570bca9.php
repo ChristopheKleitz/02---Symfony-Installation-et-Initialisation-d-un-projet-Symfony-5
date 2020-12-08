@@ -91,10 +91,18 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
         echo "\">Ajouter une série</a>
                             <a class=\"dropdown-item\" href=\"";
         // line 35
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("season_index");
+        echo "\">Index des saisons</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("season_new");
         echo "\">Ajouter une saison</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 36
+        // line 37
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_index");
+        echo "\">Index des épisodes</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_new");
         echo "\">Ajouter un épisode</a>
                         </div>
@@ -134,7 +142,7 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
 
     public function getDebugInfo()
     {
-        return array (  98 => 36,  94 => 35,  90 => 34,  74 => 21,  70 => 20,  66 => 19,  47 => 3,  43 => 1,);
+        return array (  106 => 38,  102 => 37,  98 => 36,  94 => 35,  90 => 34,  74 => 21,  70 => 20,  66 => 19,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -173,7 +181,9 @@ class __TwigTemplate_7d3e44cee0ae0363f8fe0f19ba3cb548f596bf2f5c2bbe177f07814fe46
                         </button>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
                             <a class=\"dropdown-item\" href=\"{{ path(\"program_new\") }}\">Ajouter une série</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"season_index\") }}\">Index des saisons</a>
                             <a class=\"dropdown-item\" href=\"{{ path(\"season_new\") }}\">Ajouter une saison</a>
+                            <a class=\"dropdown-item\" href=\"{{ path(\"episode_index\") }}\">Index des épisodes</a>
                             <a class=\"dropdown-item\" href=\"{{ path(\"episode_new\") }}\">Ajouter un épisode</a>
                         </div>
                     </div>
