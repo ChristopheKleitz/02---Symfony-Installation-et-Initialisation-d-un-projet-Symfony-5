@@ -383,6 +383,10 @@
     <service id="App\Form\SeasonType" class="App\Form\SeasonType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3392,7 +3396,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Fq41J0o"/>
+      <argument type="service" id=".service_locator.C8YEbXr"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5068,6 +5072,8 @@
     <service id=".abstract.instanceof.App\Form\ProgramType" class="App\Form\ProgramType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SeasonType" class="App\Form\SeasonType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SeasonType" class="App\Form\SeasonType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EpisodeRepository" class="App\Repository\EpisodeRepository" autowire="true" abstract="true"/>
@@ -5494,9 +5500,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Fq41J0o" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.C8YEbXr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ActorRepository" type="service" id="App\Repository\ActorRepository"/>
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\EpisodeRepository" type="service" id="App\Repository\EpisodeRepository"/>
         <argument key="App\Repository\ProgramRepository" type="service" id="App\Repository\ProgramRepository"/>

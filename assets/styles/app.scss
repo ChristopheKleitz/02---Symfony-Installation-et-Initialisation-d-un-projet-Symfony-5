@@ -19,6 +19,17 @@ h2 {
     color: $third;
 }
 
+ul {
+    list-style: none;
+}
+
+a:link {
+    text-decoration: none;
+    > :visited {
+        text-decoration: none;
+    }
+}
+
 .index {
     justify-content: space-around;
     & .program {
@@ -35,7 +46,6 @@ h2 {
         height: 200px;
 
         > p {
-            //white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -129,5 +139,9 @@ tbody {
     & label, button {
         color: white;
     }
+}
+
+.centré {
+    text-align: center;
 }
 

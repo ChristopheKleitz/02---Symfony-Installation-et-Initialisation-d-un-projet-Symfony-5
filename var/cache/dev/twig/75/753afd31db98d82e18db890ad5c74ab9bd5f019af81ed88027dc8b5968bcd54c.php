@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* program/actors.html.twig */
+/* program/index.html.twig */
 class __TwigTemplate_77f997d25917a2f9f8f1f2de0673388c2e8396bc2f701a7701ee7da904863ee0 extends Template
 {
     private $source;
@@ -39,12 +39,12 @@ class __TwigTemplate_77f997d25917a2f9f8f1f2de0673388c2e8396bc2f701a7701ee7da9048
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "program/actors.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "program/index.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "program/actors.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "program/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "program/actors.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "program/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -96,7 +96,7 @@ class __TwigTemplate_77f997d25917a2f9f8f1f2de0673388c2e8396bc2f701a7701ee7da9048
 
     public function getTemplateName()
     {
-        return "program/actors.html.twig";
+        return "program/index.html.twig";
     }
 
     public function isTraitable()
@@ -128,6 +128,6 @@ class __TwigTemplate_77f997d25917a2f9f8f1f2de0673388c2e8396bc2f701a7701ee7da9048
         </div>
     </div>
 
-{% endblock %}", "program/actors.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/program/actors.html.twig");
+{% endblock %}", "program/index.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/program/index.html.twig");
     }
 }

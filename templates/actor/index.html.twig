@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1> Les deux seuls qui méritent d'être connus </h1>
+    <div class="container-fluid actors">
+        <div class="actor">
+            <h2> Yavuz KUTUK </h2>
+            <a href="https://www.linkedin.com/in/yavuzkutuk/"><img src="{{ asset('build/yavuz.jpg') }}" alt="God Yavuz"/></a>
+        </div>
+
+        <div class="actor">
+            <h2> Gilles SAMUEL </h2>
+            <a href="https://www.linkedin.com/in/gilles-samuel/"><img src="{{ asset('build/gilles.jpg') }}" alt="God Gilles"/></a>
+        </div>
+    </div>
+
+    <div class="centré">
+        <h1>
+            Ou sinon en voilà d'autres moins flamboyant
+        </h1>
+        <ul>
+            {% for actor in actors %}
+            <li>
+                <a href="{{ path('actor_show', {id: actor.id}) }}">
+                    <h2>
+                        {{ actor.name }}
+                    </h2>
+                </a>
+            </li>
+            {% else %}
+            Aucun autre acteur n'en vaut vraiment la peine
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

@@ -74,10 +74,6 @@ class ProgramController extends AbstractController
      */
     public function show(Program $program): Response
     {
-        /*$program = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findOneBy(['id' => $id]);*/
-
         $seasons = $this->getDoctrine()
             ->getRepository(Season::class)
             ->findBy(['program' => $program]);

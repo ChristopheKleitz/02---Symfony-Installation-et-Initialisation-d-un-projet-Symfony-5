@@ -16,6 +16,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'actor_index' => [[], ['_controller' => 'App\\Controller\\ActorController::index'], [], [['text', '/actors/']], [], []],
+    'actor_show' => [['id'], ['_controller' => 'App\\Controller\\ActorController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/actors']], [], []],
     'category_index' => [[], ['_controller' => 'App\\Controller\\CategoryController::index'], [], [['text', '/categories/']], [], []],
     'category_new' => [[], ['_controller' => 'App\\Controller\\CategoryController::new'], [], [['text', '/categories/new']], [], []],
     'category_show' => [['categoryName'], ['_controller' => 'App\\Controller\\CategoryController::show'], [], [['variable', '/', '[^/]++', 'categoryName', true], ['text', '/categories']], [], []],

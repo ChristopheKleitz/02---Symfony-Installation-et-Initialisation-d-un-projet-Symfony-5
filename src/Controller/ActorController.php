@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Actor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,6 +20,26 @@ class ActorController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('actor/actors.html.twig');
+        $actors = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+
+        return $this->render('actor/index.html.twig',
+        [ 'actors' => $actors
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="show")
+     */
+    public function show(int $id): Response
+    {
+        $actor = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findOneBy([ 'id' => $id]);
+
+        return $this->render('actor/show.html.twig',
+        [ 'actor' => $actor
+        ]);
     }
 }
