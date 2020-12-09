@@ -27,3 +27,7 @@ https://www.loom.com/share/8e7d785b27654482af3dc42455ae72b2
 ## Quest 15:
 
 https://www.loom.com/share/3034dc6caf904048a2a419cd46c8628d
+
+## Quest 16
+
+https://youtu.be/Vcd4TBb7lTg
