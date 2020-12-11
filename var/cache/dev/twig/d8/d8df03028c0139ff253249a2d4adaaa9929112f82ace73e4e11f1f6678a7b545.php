@@ -67,8 +67,10 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
-        echo "    Série #";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 4, $this->source); })()), "id", [], "any", false, false, false, 4), "html", null, true);
+        echo "    ";
+        $this->displayParentBlock("title", $context, $blocks);
+        echo " | ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 4, $this->source); })()), "title", [], "any", false, false, false, 4), "html", null, true);
         echo "
 ";
         
@@ -125,7 +127,9 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
             <h1 class=\"mt-0\"> ";
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "title", [], "any", false, false, false, 16), "html", null, true);
-        echo " </h1>
+        echo " / ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "slug", [], "any", false, false, false, 16), "html", null, true);
+        echo "</h1>
             <p class=\"text-white\"> ";
         // line 17
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 17, $this->source); })()), "summary", [], "any", false, false, false, 17), "html", null, true);
@@ -134,46 +138,52 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
         // line 18
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 18, $this->source); })()), "category", [], "any", false, false, false, 18), "name", [], "any", false, false, false, 18), "html", null, true);
         echo " </span></p>
-            ";
-        // line 19
+            <div class=\"container-fluid\">
+                <div class=\"row index\">
+                    ";
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["seasons"]) || array_key_exists("seasons", $context) ? $context["seasons"] : (function () { throw new RuntimeError('Variable "seasons" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["seasons"]) || array_key_exists("seasons", $context) ? $context["seasons"] : (function () { throw new RuntimeError('Variable "seasons" does not exist.', 21, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["season"]) {
-            // line 20
-            echo "            <p>
-                <a href=\"";
-            // line 21
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "season" => twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 21)]), "html", null, true);
-            echo "\" class=\"text-white\">
-                    Saison ";
             // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 22), "html", null, true);
+            echo "                        <div class=\"col-lg-4\">
+                            <p>
+                                <a href=\"";
+            // line 24
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 24, $this->source); })()), "id", [], "any", false, false, false, 24), "season" => twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 24)]), "html", null, true);
+            echo "\" class=\"text-white\">
+                                    Saison ";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["season"], "number", [], "any", false, false, false, 25), "html", null, true);
             echo "
-                </a>
-            </p>
-            ";
+                                </a>
+                            </p>
+                        </div>
+                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['season'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 26
-        echo "            <strong>Acteurs :</strong>
+        // line 30
+        echo "                </div>
+            </div>
+            <strong>Acteurs :</strong>
             <ul>
                 ";
-        // line 28
+        // line 34
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 28, $this->source); })()), "actors", [], "any", false, false, false, 28));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 34, $this->source); })()), "actors", [], "any", false, false, false, 34));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
-            // line 29
+            // line 35
             echo "                    <li>
                         <a href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("actor_show", ["id" => twig_get_attribute($this->env, $this->source, $context["actor"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("actor_show", ["actor" => twig_get_attribute($this->env, $this->source, $context["actor"], "id", [], "any", false, false, false, 36)]), "html", null, true);
             echo "\" class=\"text-white\">
                             ";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 31), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 37), "html", null, true);
             echo "
                         </a>
                     </li>
@@ -181,7 +191,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 35
+            // line 41
             echo "                    <li class=\"text-white\">
                         Aucun acteur pour cette série
                     </li>
@@ -190,11 +200,11 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['actor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 45
         echo "            </ul>
             <div class=\"retour\">
                 <a href=\"";
-        // line 41
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_index");
         echo "\">
                     Retour à la liste des programmes
@@ -227,7 +237,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
 
     public function getDebugInfo()
     {
-        return array (  198 => 41,  194 => 39,  185 => 35,  176 => 31,  172 => 30,  169 => 29,  164 => 28,  160 => 26,  150 => 22,  146 => 21,  143 => 20,  139 => 19,  135 => 18,  131 => 17,  127 => 16,  120 => 14,  116 => 12,  106 => 11,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  208 => 47,  204 => 45,  195 => 41,  186 => 37,  182 => 36,  179 => 35,  174 => 34,  168 => 30,  157 => 25,  153 => 24,  149 => 22,  145 => 21,  139 => 18,  135 => 17,  129 => 16,  122 => 14,  118 => 12,  108 => 11,  95 => 8,  85 => 7,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -235,7 +245,7 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}
-    Série #{{ program.id }}
+    {{ parent() }} | {{ program.title}}
 {% endblock %}
 
 {% block stylesheet %}
@@ -247,21 +257,27 @@ class __TwigTemplate_ca3e1210bb57e5d62a0cf9deada8797ed7c1e43fc8adaee9d3df8e8df9f
     <div class=\"media\">
         <img class=\"align-self-start mr-3\" src=\"{{ program.poster }}\" alt=\"{{ program.title }} poster\">
         <div class=\"media-body\">
-            <h1 class=\"mt-0\"> {{ program.title }} </h1>
+            <h1 class=\"mt-0\"> {{ program.title }} / {{ program.slug }}</h1>
             <p class=\"text-white\"> {{ program.summary }} </p>
             <p> Catégorie: <span class=\"text-white\"> {{ program.category.name }} </span></p>
-            {% for season in seasons %}
-            <p>
-                <a href=\"{{ path('program_season_show', {program : program.id, season : season.number}) }}\" class=\"text-white\">
-                    Saison {{ season.number }}
-                </a>
-            </p>
-            {% endfor %}
+            <div class=\"container-fluid\">
+                <div class=\"row index\">
+                    {% for season in seasons %}
+                        <div class=\"col-lg-4\">
+                            <p>
+                                <a href=\"{{ path('program_season_show', {program : program.id, season : season.number}) }}\" class=\"text-white\">
+                                    Saison {{ season.number }}
+                                </a>
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
             <strong>Acteurs :</strong>
             <ul>
                 {% for actor in program.actors %}
                     <li>
-                        <a href=\"{{ path('actor_show', {id: actor.id}) }}\" class=\"text-white\">
+                        <a href=\"{{ path('actor_show', {actor: actor.id}) }}\" class=\"text-white\">
                             {{ actor.name }}
                         </a>
                     </li>

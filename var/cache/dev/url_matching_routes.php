@@ -49,7 +49,7 @@ return [
                     .'|(*:262)'
                 .')'
                 .'|/programs/(?'
-                    .'|show/([0-9]+)(*:297)'
+                    .'|show/([^/]++)(*:297)'
                     .'|([^/]++)/seasons/([^/]++)(?'
                         .'|(*:333)'
                         .'|/episode/([^/]++)(*:358)'
@@ -70,18 +70,18 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        185 => [[['_route' => 'actor_show', '_controller' => 'App\\Controller\\ActorController::show'], ['id'], null, null, false, true, null]],
+        185 => [[['_route' => 'actor_show', '_controller' => 'App\\Controller\\ActorController::show'], ['actor'], null, null, false, true, null]],
         213 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::show'], ['categoryName'], null, null, false, true, null]],
-        241 => [[['_route' => 'episode_show', '_controller' => 'App\\Controller\\EpisodeController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        254 => [[['_route' => 'episode_edit', '_controller' => 'App\\Controller\\EpisodeController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        262 => [[['_route' => 'episode_delete', '_controller' => 'App\\Controller\\EpisodeController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        297 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        241 => [[['_route' => 'episode_show', '_controller' => 'App\\Controller\\EpisodeController::show'], ['episode'], ['GET' => 0], null, false, true, null]],
+        254 => [[['_route' => 'episode_edit', '_controller' => 'App\\Controller\\EpisodeController::edit'], ['episode'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        262 => [[['_route' => 'episode_delete', '_controller' => 'App\\Controller\\EpisodeController::delete'], ['episode'], ['DELETE' => 0], null, false, true, null]],
+        297 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['program'], ['GET' => 0], null, false, true, null]],
         333 => [[['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['program', 'season'], null, null, false, true, null]],
         358 => [[['_route' => 'program_episode_show', '_controller' => 'App\\Controller\\ProgramController::showEpisode'], ['program', 'season', 'episode'], null, null, false, true, null]],
-        387 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        400 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        387 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['season'], ['GET' => 0], null, false, true, null]],
+        400 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         408 => [
-            [['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+            [['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

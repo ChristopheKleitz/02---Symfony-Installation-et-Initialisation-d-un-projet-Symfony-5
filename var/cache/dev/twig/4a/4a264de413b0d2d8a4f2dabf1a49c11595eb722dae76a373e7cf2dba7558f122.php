@@ -70,10 +70,6 @@ class __TwigTemplate_ab76f9ae038a1b55681cd1081abb2ee577c516f721f1ddf57ca80cca68e
         // line 5
         echo twig_escape_filter($this->env, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 5, $this->source); })()), "html", null, true);
         echo "</h1>
-    <a href=\"";
-        // line 6
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["id" => 4]);
-        echo "\">Afficher la page 4</a>
 
 ";
         
@@ -96,7 +92,7 @@ class __TwigTemplate_ab76f9ae038a1b55681cd1081abb2ee577c516f721f1ddf57ca80cca68e
 
     public function getDebugInfo()
     {
-        return array (  75 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -106,7 +102,6 @@ class __TwigTemplate_ab76f9ae038a1b55681cd1081abb2ee577c516f721f1ddf57ca80cca68e
 {% block body %}
 
     <h1>Bienvenue sur {{ website }}</h1>
-    <a href=\"{{ path('program_show', {id: 4}) }}\">Afficher la page 4</a>
 
 {% endblock %}", "index.html.twig", "/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/templates/index.html.twig");
     }

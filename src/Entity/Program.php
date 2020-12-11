@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
+use App\Service\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,10 +65,16 @@ class Program
      */
     private $actors;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    public function __construct(Slugify $slugify)
     {
         $this->seasons = new ArrayCollection();
         $this->actors = new ArrayCollection();
+        $this->slug = $slugify->generate($this->getTitle());
     }
 
     public function getTitle(): ?string
@@ -176,6 +183,18 @@ class Program
         if ($this->actors->removeElement($actor)) {
             $actor->removeProgram($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

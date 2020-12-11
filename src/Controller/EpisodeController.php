@@ -7,6 +7,8 @@ use App\Entity\Program;
 use App\Entity\Season;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
+use App\Repository\ProgramRepository;
+use App\Repository\SeasonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,15 +33,11 @@ class EpisodeController extends AbstractController
     /**
      * @Route("/new", name="episode_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SeasonRepository $seasonRepository, ProgramRepository $programRepository): Response
     {
-        $seasons = $this->getDoctrine()
-            ->getRepository(Season::class)
-            ->findAll();
+        $seasons = $seasonRepository->findAll();
 
-        $programs = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findAll();
+        $programs = $programRepository->findAll();
 
         $episode = new Episode();
         $form = $this->createForm(EpisodeType::class, $episode);
@@ -62,7 +60,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_show", methods={"GET"})
+     * @Route("/{episode}", name="episode_show", methods={"GET"})
      */
     public function show(Episode $episode): Response
     {
@@ -72,7 +70,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="episode_edit", methods={"GET","POST"})
+     * @Route("/{episode}/edit", name="episode_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Episode $episode): Response
     {
@@ -92,7 +90,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
+     * @Route("/{episode}", name="episode_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Episode $episode): Response
     {

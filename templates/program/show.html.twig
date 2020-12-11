@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Série #{{ program.id }}
+    {{ parent() }} | {{ program.title}}
 {% endblock %}
 
 {% block stylesheet %}
@@ -13,21 +13,27 @@
     <div class="media">
         <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
         <div class="media-body">
-            <h1 class="mt-0"> {{ program.title }} </h1>
+            <h1 class="mt-0"> {{ program.title }} / {{ program.slug }}</h1>
             <p class="text-white"> {{ program.summary }} </p>
             <p> Catégorie: <span class="text-white"> {{ program.category.name }} </span></p>
-            {% for season in seasons %}
-            <p>
-                <a href="{{ path('program_season_show', {program : program.id, season : season.number}) }}" class="text-white">
-                    Saison {{ season.number }}
-                </a>
-            </p>
-            {% endfor %}
+            <div class="container-fluid">
+                <div class="row index">
+                    {% for season in seasons %}
+                        <div class="col-lg-4">
+                            <p>
+                                <a href="{{ path('program_season_show', {program : program.id, season : season.number}) }}" class="text-white">
+                                    Saison {{ season.number }}
+                                </a>
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
             <strong>Acteurs :</strong>
             <ul>
                 {% for actor in program.actors %}
                     <li>
-                        <a href="{{ path('actor_show', {id: actor.id}) }}" class="text-white">
+                        <a href="{{ path('actor_show', {actor: actor.id}) }}" class="text-white">
                             {{ actor.name }}
                         </a>
                     </li>

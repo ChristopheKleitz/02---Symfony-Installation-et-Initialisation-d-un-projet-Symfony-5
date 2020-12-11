@@ -30,13 +30,13 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show")
+     * @Route("/{actor}", name="show")
      */
-    public function show(int $id): Response
+    public function show(Actor $actor): Response
     {
-        $actor = $this->getDoctrine()
+        /*$actor = $this->getDoctrine()
             ->getRepository(Actor::class)
-            ->findOneBy([ 'id' => $id]);
+            ->findOneBy([ 'id' => $id]);*/
 
         return $this->render('actor/show.html.twig',
         [ 'actor' => $actor

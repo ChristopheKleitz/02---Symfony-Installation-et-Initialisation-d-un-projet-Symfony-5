@@ -175,7 +175,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
                 <br><br>
                 <a href=\"";
         // line 36
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)]), "html", null, true);
         echo "\">
                     Retour à la fiche du programme
                 </a>
@@ -244,7 +244,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
             </div>
             <div class=\"retour\">
                 <br><br>
-                <a href=\"{{ path('program_show', {id : program.id}) }}\">
+                <a href=\"{{ path('program_show', {program : program.id}) }}\">
                     Retour à la fiche du programme
                 </a>
             </div>

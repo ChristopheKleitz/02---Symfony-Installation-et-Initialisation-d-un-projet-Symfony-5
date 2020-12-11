@@ -144,7 +144,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
             echo "                <div class=\"col-lg-4 col-md-6 program\">
                     <a href=\"";
             // line 19
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["id" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 19)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 19)]), "html", null, true);
             echo "\">
                         <img class=\"poster\" src=\"";
             // line 20
@@ -166,7 +166,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
             echo "</p>
                         <a href=\"";
             // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["id" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\">
                             Voir la fiche
                         </a>
@@ -251,13 +251,13 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
         <div class=\"row index\">
             {% for program in programs %}
                 <div class=\"col-lg-4 col-md-6 program\">
-                    <a href=\"{{ path(\"program_show\", { id: program.id }) }}\">
+                    <a href=\"{{ path(\"program_show\", { program: program.id }) }}\">
                         <img class=\"poster\" src=\"{{ program.poster }}\" alt=\"Affiche {{ program.title }}\">
                     </a>
                     <div class=\"description\">
                         <h2 class=\"title\">{{ loop.index }}/ {{ program.title }}</h2>
                         <p>{{ program.summary}}</p>
-                        <a href=\"{{ path(\"program_show\", { id: program.id }) }}\">
+                        <a href=\"{{ path(\"program_show\", { program: program.id }) }}\">
                             Voir la fiche
                         </a>
                     </div>

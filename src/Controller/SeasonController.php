@@ -52,7 +52,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="season_show", methods={"GET"})
+     * @Route("/{season}", name="season_show", methods={"GET"})
      */
     public function show(Season $season): Response
     {
@@ -62,7 +62,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="season_edit", methods={"GET","POST"})
+     * @Route("/{season}/edit", name="season_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Season $season): Response
     {
@@ -82,7 +82,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="season_delete", methods={"DELETE"})
+     * @Route("/{season}", name="season_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Season $season): Response
     {
