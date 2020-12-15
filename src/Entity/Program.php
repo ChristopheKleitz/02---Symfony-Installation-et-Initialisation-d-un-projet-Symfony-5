@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
-use App\Service\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -70,11 +69,10 @@ class Program
      */
     private $slug;
 
-    public function __construct(Slugify $slugify)
+    public function __construct()
     {
         $this->seasons = new ArrayCollection();
         $this->actors = new ArrayCollection();
-        $this->slug = $slugify->generate($this->getTitle());
     }
 
     public function getTitle(): ?string

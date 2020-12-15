@@ -80,6 +80,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
+        $slugify = new Slugify();
         $i = 0;
         foreach (self::PROGRAMS as $title => $data) {
             $program = new Program();
@@ -87,7 +88,8 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setSummary($data['summary']);
             $program->setCategory($this->getReference($data['category']));
             $program->setPoster($data['poster']);
-            $program = $this->slug->generate($program->getTitle());
+            $slug = $slugify->generate($program->getTitle());
+            $program->setSlug($slug);
             $manager->persist($program);
             $this->addReference('program_'.$i, $program);
             $i++;

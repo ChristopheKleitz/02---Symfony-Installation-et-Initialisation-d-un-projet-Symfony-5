@@ -159,7 +159,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
             echo " <br>
                         <a class=\"tab\" href=\"";
             // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_episode_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28), "season" => twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 28, $this->source); })()), "number", [], "any", false, false, false, 28), "episode" => twig_get_attribute($this->env, $this->source, $context["episode"], "number", [], "any", false, false, false, 28)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_episode_show", ["programSlug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 28, $this->source); })()), "slug", [], "any", false, false, false, 28), "season" => twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 28, $this->source); })()), "number", [], "any", false, false, false, 28), "episodeSlug" => twig_get_attribute($this->env, $this->source, $context["episode"], "slug", [], "any", false, false, false, 28)]), "html", null, true);
             echo "\">
                             Voir la fiche de l'épisode
                         </a><br>
@@ -175,7 +175,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
                 <br><br>
                 <a href=\"";
         // line 36
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 36, $this->source); })()), "slug", [], "any", false, false, false, 36)]), "html", null, true);
         echo "\">
                     Retour à la fiche du programme
                 </a>
@@ -236,7 +236,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
                 <div class=\"tab\"><br>
                     {% for episode in episodes %}
                         Episode {{ episode.number }}: {{ episode.title }} <br>
-                        <a class=\"tab\" href=\"{{ path('program_episode_show', {program: program.id, season: season.number, episode: episode.number}) }}\">
+                        <a class=\"tab\" href=\"{{ path('program_episode_show', {programSlug: program.slug, season: season.number, episodeSlug: episode.slug}) }}\">
                             Voir la fiche de l'épisode
                         </a><br>
                     {% endfor %}
@@ -244,7 +244,7 @@ class __TwigTemplate_89e67ff2e1d798038dec181c11a07cad20918683bc45bd10496b3260002
             </div>
             <div class=\"retour\">
                 <br><br>
-                <a href=\"{{ path('program_show', {program : program.id}) }}\">
+                <a href=\"{{ path('program_show', {slug : program.slug}) }}\">
                     Retour à la fiche du programme
                 </a>
             </div>

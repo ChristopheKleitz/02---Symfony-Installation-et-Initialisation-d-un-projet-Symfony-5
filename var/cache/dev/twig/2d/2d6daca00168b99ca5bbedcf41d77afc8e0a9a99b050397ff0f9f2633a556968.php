@@ -69,8 +69,8 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
         // line 4
         echo "    ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 4, $this->source); })()), "title", [], "any", false, false, false, 4), "html", null, true);
-        echo " |  Saison ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 4, $this->source); })()), "number", [], "any", false, false, false, 4), "html", null, true);
+        echo " |  ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 4, $this->source); })()), "title", [], "any", false, false, false, 4), "html", null, true);
         echo "
 ";
         
@@ -143,20 +143,20 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
         echo "
             </div>
             <div><br>
-                Episode ";
+                <h2> Episode ";
         // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episodes"]) || array_key_exists("episodes", $context) ? $context["episodes"] : (function () { throw new RuntimeError('Variable "episodes" does not exist.', 23, $this->source); })()), "number", [], "any", false, false, false, 23), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 23, $this->source); })()), "number", [], "any", false, false, false, 23), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episodes"]) || array_key_exists("episodes", $context) ? $context["episodes"] : (function () { throw new RuntimeError('Variable "episodes" does not exist.', 23, $this->source); })()), "title", [], "any", false, false, false, 23), "html", null, true);
-        echo " <br>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 23, $this->source); })()), "title", [], "any", false, false, false, 23), "html", null, true);
+        echo " </h2> <br>
                 ";
         // line 24
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episodes"]) || array_key_exists("episodes", $context) ? $context["episodes"] : (function () { throw new RuntimeError('Variable "episodes" does not exist.', 24, $this->source); })()), "synopsis", [], "any", false, false, false, 24), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 24, $this->source); })()), "synopsis", [], "any", false, false, false, 24), "html", null, true);
         echo "
                 <div class=\"retour\">
                     <a href=\"";
         // line 26
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["program" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 26, $this->source); })()), "id", [], "any", false, false, false, 26), "season" => twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 26, $this->source); })()), "number", [], "any", false, false, false, 26)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_season_show", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 26, $this->source); })()), "slug", [], "any", false, false, false, 26), "season" => twig_get_attribute($this->env, $this->source, (isset($context["season"]) || array_key_exists("season", $context) ? $context["season"] : (function () { throw new RuntimeError('Variable "season" does not exist.', 26, $this->source); })()), "number", [], "any", false, false, false, 26)]), "html", null, true);
         echo "\">
                         Retour à la fiche de la saison
                     </a>
@@ -194,7 +194,7 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ program.title }} |  Saison {{ season.number }}
+    {{ program.title }} |  {{ episode.title }}
 {% endblock %}
 
 {%  block stylesheet %}
@@ -213,10 +213,10 @@ class __TwigTemplate_f1035d4650e4a957da72892f5b20a4097a9984f39a9ebf1aa621851dbb1
                 {{ season.description }}
             </div>
             <div><br>
-                Episode {{ episodes.number }}: {{ episodes.title }} <br>
-                {{ episodes.synopsis }}
+                <h2> Episode {{ episode.number }}: {{ episode.title }} </h2> <br>
+                {{ episode.synopsis }}
                 <div class=\"retour\">
-                    <a href=\"{{ path('program_season_show', {program : program.id, season : season.number}) }}\">
+                    <a href=\"{{ path('program_season_show', {slug : program.slug, season : season.number}) }}\">
                         Retour à la fiche de la saison
                     </a>
                 </div>

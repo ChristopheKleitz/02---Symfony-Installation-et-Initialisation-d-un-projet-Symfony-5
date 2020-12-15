@@ -22,7 +22,7 @@
             <ul>
                 {% for program in actor.programs %}
                 <li>
-                    <a href="{{ path('program_show', {program: program.id}) }}" class="text-white">
+                    <a href="{{ path('program_show', {slug: program.slug}) }}" class="text-white">
                         {{ program.title }}
                     </a>
                 </li>

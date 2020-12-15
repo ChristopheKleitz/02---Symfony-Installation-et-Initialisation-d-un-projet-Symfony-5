@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 /**
@@ -40,6 +41,9 @@ class ProgramController extends AbstractController
      * The controller for the category add form
      *
      * @Route("/new", name="new")
+     * @param Request $request
+     * @param Slugify $slugify
+     * @return Response
      */
     public function new(Request $request, Slugify $slugify) : Response
     {
@@ -73,7 +77,8 @@ class ProgramController extends AbstractController
     /**
      * Getting a program by id
      *
-     * @Route("/show/{program}", methods={"GET"}, name="show")
+     * @Route("/show/{slug}", name="show")
+     * @param Program $program
      * @return Response
      */
     public function show(Program $program): Response
@@ -90,11 +95,21 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route ("/{program}/seasons/{season}", name="season_show")
+     * @Route ("/{slug}/seasons/{season}", name="season_show")
+     * @param Program $program
+     * @param Season $season
+     * @return Response
      */
     public function showSeason(Program $program, Season $season): Response
     {
-        $episodes = $season->getEpisodes();
+        $season = $this->getDoctrine()
+            ->getRepository(Season::class)
+            ->findOneBy(['program' => $program, 'number' => $season]);
+
+        $episodes = $this->getDoctrine()
+            ->getRepository(Episode::class)
+            ->findBy(['season' => $season]);
+//        var_dump($seasonNumber);
 
         return $this->render('program/season_show.html.twig',
         ['program' => $program,
@@ -104,22 +119,20 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{program}/seasons/{season}/episode/{episode}", name="episode_show")
+     * @Route("/{programSlug}/seasons/{season}/episode/{episodeSlug}", name="episode_show")
+     * @ParamConverter ("program", class="App\Entity\Program", options={"mapping": {"programSlug": "slug"}})
+     * @ParamConverter ("episode", class="App\Entity\Episode", options={"mapping": {"episodeSlug": "slug"}})
+     * @param Program $program
+     * @param Season $season
+     * @param Episode $episode
+     * @return Response
      */
     public function showEpisode(Program $program, Season $season, Episode $episode): Response
     {
-        $season = $this->getDoctrine()
-            ->getRepository(Season::class)
-            ->findOneBy(['program' => $program, 'number' => $season]);
-
-        $episodes = $this->getDoctrine()
-            ->getRepository(Episode::class)
-            ->findOneBy(['season' => $season, 'number' => $episode]);
-
         return $this->render('program/episode_show.html.twig',
             ['program' => $program,
                 'season' => $season,
-                'episodes' => $episodes
+                'episode' => $episode
             ]);
     }
 }

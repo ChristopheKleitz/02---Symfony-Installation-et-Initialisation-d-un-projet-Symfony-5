@@ -25,7 +25,7 @@
                 <div class="tab"><br>
                     {% for episode in episodes %}
                         Episode {{ episode.number }}: {{ episode.title }} <br>
-                        <a class="tab" href="{{ path('program_episode_show', {program: program.id, season: season.number, episode: episode.number}) }}">
+                        <a class="tab" href="{{ path('program_episode_show', {programSlug: program.slug, season: season.number, episodeSlug: episode.slug}) }}">
                             Voir la fiche de l'épisode
                         </a><br>
                     {% endfor %}
@@ -33,7 +33,7 @@
             </div>
             <div class="retour">
                 <br><br>
-                <a href="{{ path('program_show', {program : program.id}) }}">
+                <a href="{{ path('program_show', {slug : program.slug}) }}">
                     Retour à la fiche du programme
                 </a>
             </div>

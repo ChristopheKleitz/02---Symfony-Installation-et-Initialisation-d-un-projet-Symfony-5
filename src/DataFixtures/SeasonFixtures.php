@@ -29,7 +29,7 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
         for ( $i = 0; $i <= 10; $i++) {
 
-            for ($j = 1; $j <= 15; $j++) {
+            for ($j = 1; $j <= 8; $j++) {
                 $season = new Season();
                 $season->setNumber($j);
                 $this->addReference('program_'.$i.'season_'.$j, $season);
