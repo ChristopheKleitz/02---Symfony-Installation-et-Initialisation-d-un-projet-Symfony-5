@@ -11,6 +11,8 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -36,12 +38,15 @@ class EpisodeController extends AbstractController
      * @param SeasonRepository $seasonRepository
      * @param ProgramRepository $programRepository
      * @param Slugify $slugify
+     * @param MailerInterface $mailer
      * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function new(Request $request, SeasonRepository $seasonRepository, ProgramRepository $programRepository, Slugify $slugify): Response
+    public function new(Request $request, SeasonRepository $seasonRepository,
+                        ProgramRepository $programRepository, Slugify $slugify,
+                        MailerInterface $mailer): Response
     {
         $seasons = $seasonRepository->findAll();
-
         $programs = $programRepository->findAll();
 
         $episode = new Episode();
@@ -54,7 +59,18 @@ class EpisodeController extends AbstractController
             $episode->setSlug($slug);
             $entityManager->persist($episode);
             $entityManager->flush();
-
+            $program = $episode->getSeason()->getProgram();
+            $season = $episode->getSeason();
+            $email = ( new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('a2ebbed13a-2232dc@inbox.mailtrap.io')
+                ->subject('Une nouvel épisode vient de sortir !')
+                ->html($this->renderView('episode/newEpisodeEmail.html.twig', [
+                    'episode' => $episode,
+                    'program' => $program,
+                    'season' => $season,
+                ]));
+            $mailer->send($email);
             return $this->redirectToRoute('episode_index');
         }
 

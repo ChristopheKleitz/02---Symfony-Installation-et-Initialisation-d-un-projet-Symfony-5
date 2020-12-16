@@ -77,6 +77,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="mailer_from">%env(resolve:MAILER_FROM_ADDRESS)%</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -831,6 +832,7 @@
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
+        <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/assets/styles</argument>
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Email</argument>
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </argument>
@@ -853,6 +855,7 @@
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
+        <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/assets/styles</argument>
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Email</argument>
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </argument>
@@ -4430,6 +4433,9 @@
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.cssinliner"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
       <call method="addExtension">
@@ -4473,6 +4479,7 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
       <argument type="collection">
+        <argument key="/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/assets/styles">styles</argument>
         <argument key="/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Email">email</argument>
         <argument key="/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
@@ -4488,6 +4495,10 @@
       <tag name="twig.loader"/>
       <argument type="collection"/>
       <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series</argument>
+      <call method="addPath">
+        <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/assets/styles</argument>
+        <argument>styles</argument>
+      </call>
       <call method="addPath">
         <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
@@ -4653,6 +4664,9 @@
       <argument type="service" id="twig"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor" public="false"/>
+    <service id="twig.extension.cssinliner" class="Twig\Extra\CssInliner\CssInlinerExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
     <service id=".2_HtmlDumper~cTJOAwB" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
@@ -5439,9 +5453,10 @@
         <argument key="episodeRepository" type="service" id="App\Repository\EpisodeRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.llndmWd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.cmEXzXk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="mailer" type="service" id="mailer.mailer"/>
         <argument key="programRepository" type="service" id="App\Repository\ProgramRepository"/>
         <argument key="seasonRepository" type="service" id="App\Repository\SeasonRepository"/>
         <argument key="slugify" type="service" id="App\Service\Slugify"/>
@@ -5460,9 +5475,10 @@
         <argument key="slugify" type="service" id="App\Service\Slugify"/>
       </argument>
     </service>
-    <service id=".service_locator.rx6v.RC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.0Bj8v0K" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="mailer" type="service" id="mailer.mailer"/>
         <argument key="slugify" type="service" id="App\Service\Slugify"/>
       </argument>
     </service>
@@ -5499,7 +5515,7 @@
         <argument key="season" type="service" id=".errored..service_locator.cBD1iKn.App\Entity\Season"/>
       </argument>
     </service>
-    <service id=".service_locator.C1Tz2RU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.L4FBTS9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActorController::show" type="service" id=".service_locator.3nrNJeC"/>
@@ -5507,9 +5523,9 @@
         <argument key="App\Controller\EpisodeController::delete" type="service" id=".service_locator.OKz7Vr9"/>
         <argument key="App\Controller\EpisodeController::edit" type="service" id=".service_locator.bBk2hOy"/>
         <argument key="App\Controller\EpisodeController::index" type="service" id=".service_locator.CjG2UiA"/>
-        <argument key="App\Controller\EpisodeController::new" type="service" id=".service_locator.llndmWd"/>
+        <argument key="App\Controller\EpisodeController::new" type="service" id=".service_locator.cmEXzXk"/>
         <argument key="App\Controller\EpisodeController::show" type="service" id=".service_locator.OKz7Vr9"/>
-        <argument key="App\Controller\ProgramController::new" type="service" id=".service_locator.rx6v.RC"/>
+        <argument key="App\Controller\ProgramController::new" type="service" id=".service_locator.0Bj8v0K"/>
         <argument key="App\Controller\ProgramController::show" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController::showEpisode" type="service" id=".service_locator.LFdZtJt"/>
         <argument key="App\Controller\ProgramController::showSeason" type="service" id=".service_locator.U7HHBPP"/>
@@ -5528,9 +5544,9 @@
         <argument key="App\Controller\EpisodeController:delete" type="service" id=".service_locator.OKz7Vr9"/>
         <argument key="App\Controller\EpisodeController:edit" type="service" id=".service_locator.bBk2hOy"/>
         <argument key="App\Controller\EpisodeController:index" type="service" id=".service_locator.CjG2UiA"/>
-        <argument key="App\Controller\EpisodeController:new" type="service" id=".service_locator.llndmWd"/>
+        <argument key="App\Controller\EpisodeController:new" type="service" id=".service_locator.cmEXzXk"/>
         <argument key="App\Controller\EpisodeController:show" type="service" id=".service_locator.OKz7Vr9"/>
-        <argument key="App\Controller\ProgramController:new" type="service" id=".service_locator.rx6v.RC"/>
+        <argument key="App\Controller\ProgramController:new" type="service" id=".service_locator.0Bj8v0K"/>
         <argument key="App\Controller\ProgramController:show" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController:showEpisode" type="service" id=".service_locator.LFdZtJt"/>
         <argument key="App\Controller\ProgramController:showSeason" type="service" id=".service_locator.U7HHBPP"/>
@@ -6034,12 +6050,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.C1Tz2RU"/>
+      <argument type="service" id=".service_locator.L4FBTS9"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.C1Tz2RU"/>
+      <argument type="service" id=".service_locator.L4FBTS9"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6461,7 +6477,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.C1Tz2RU"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.L4FBTS9"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

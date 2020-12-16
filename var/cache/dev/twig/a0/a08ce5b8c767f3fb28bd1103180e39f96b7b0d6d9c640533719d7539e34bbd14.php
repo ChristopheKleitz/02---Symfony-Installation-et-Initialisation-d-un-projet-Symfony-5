@@ -34,7 +34,7 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "layout/base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -46,7 +46,7 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "category/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "category/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("layout/base.html.twig", "category/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -211,7 +211,7 @@ class __TwigTemplate_e27609b9fbf79bccf14c6231911e36a5d493375a5a7f35b29c7e863d147
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'layout/base.html.twig' %}
 
 {% block title %}
     All categories

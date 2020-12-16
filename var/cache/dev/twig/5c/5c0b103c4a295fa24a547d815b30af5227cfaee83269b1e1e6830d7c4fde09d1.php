@@ -34,7 +34,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "layout/base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -46,7 +46,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "category/show.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "category/show.html.twig", 1);
+        $this->parent = $this->loadTemplate("layout/base.html.twig", "category/show.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -144,7 +144,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
             echo "                <div class=\"col-lg-4 col-md-6 program\">
                     <a href=\"";
             // line 19
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 19)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["program"], "slug", [], "any", false, false, false, 19)]), "html", null, true);
             echo "\">
                         <img class=\"poster\" src=\"";
             // line 20
@@ -166,7 +166,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
             echo "</p>
                         <a href=\"";
             // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["program" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["program"], "slug", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\">
                             Voir la fiche
                         </a>
@@ -233,7 +233,7 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'layout/base.html.twig' %}
 
 {% block title %}
     {{ category.name}}
@@ -251,13 +251,13 @@ class __TwigTemplate_57d60780dd9b0ec253ea2beb2207959c5b83bbc3f124255890c3aba5b12
         <div class=\"row index\">
             {% for program in programs %}
                 <div class=\"col-lg-4 col-md-6 program\">
-                    <a href=\"{{ path(\"program_show\", { program: program.id }) }}\">
+                    <a href=\"{{ path(\"program_show\", { slug: program.slug }) }}\">
                         <img class=\"poster\" src=\"{{ program.poster }}\" alt=\"Affiche {{ program.title }}\">
                     </a>
                     <div class=\"description\">
                         <h2 class=\"title\">{{ loop.index }}/ {{ program.title }}</h2>
                         <p>{{ program.summary}}</p>
-                        <a href=\"{{ path(\"program_show\", { program: program.id }) }}\">
+                        <a href=\"{{ path(\"program_show\", { slug: program.slug }) }}\">
                             Voir la fiche
                         </a>
                     </div>

@@ -179,6 +179,10 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CEpisode%23getSynopsis%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CEpisode%23setSynopsis%5D%5B1%5D' => 1,
 '%5B%5BC%5DApp%5CEntity%5CEpisode%23setSynopsis%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CEpisode%23getSlug%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CEpisode%23getSlug%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CEpisode%23setSlug%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CEpisode%23setSlug%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CEpisode%24id%5D%5B1%5D' => 27,
 '%5B%5BC%5DApp%5CEntity%5CEpisode%24id%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CEpisode%24season%5D%5B1%5D' => 34,
@@ -189,6 +193,8 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CEpisode%24number%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CEpisode%24synopsis%5D%5B1%5D' => 36,
 '%5B%5BC%5DApp%5CEntity%5CEpisode%24synopsis%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CEpisode%24slug%5D%5B1%5D' => 28,
+'%5B%5BC%5DApp%5CEntity%5CEpisode%24slug%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%5D%5B1%5D' => 37,
 '%5B%5BC%5DApp%5CEntity%5CProgram%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%23__construct%5D%5B1%5D' => 1,
@@ -223,6 +229,10 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CProgram%23addActor%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%23removeActor%5D%5B1%5D' => 1,
 '%5B%5BC%5DApp%5CEntity%5CProgram%23removeActor%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CProgram%23getSlug%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CProgram%23getSlug%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CProgram%23setSlug%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CProgram%23setSlug%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%24id%5D%5B1%5D' => 27,
 '%5B%5BC%5DApp%5CEntity%5CProgram%24id%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%24title%5D%5B1%5D' => 38,
@@ -237,6 +247,8 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CProgram%24seasons%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CProgram%24actors%5D%5B1%5D' => 43,
 '%5B%5BC%5DApp%5CEntity%5CProgram%24actors%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CProgram%24slug%5D%5B1%5D' => 28,
+'%5B%5BC%5DApp%5CEntity%5CProgram%24slug%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CSeason%5D%5B1%5D' => 44,
 '%5B%5BC%5DApp%5CEntity%5CSeason%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CSeason%23__construct%5D%5B1%5D' => 1,
@@ -820,7 +832,7 @@ return [[
 
 0 => 'N;',
 1 => [],
-2 => 1607437457,
+2 => 1608111248,
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -874,7 +886,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/{actor}',
                 ],
                 'name' => [
                     'show',
@@ -1058,7 +1070,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/{slug}',
                 ],
                 'name' => [
                     'episode_show',
@@ -1085,7 +1097,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}/edit',
+                    '/{slug}/edit',
                 ],
                 'name' => [
                     'episode_edit',
@@ -1113,7 +1125,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/{slug}',
                 ],
                 'name' => [
                     'episode_delete',
@@ -1162,15 +1174,10 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/show/{id<^[0-9]+$>}',
+                    '/show/{slug}',
                 ],
                 'name' => [
                     'show',
-                ],
-                'methods' => [
-                    [
-                        'GET',
-                    ],
                 ],
             ],
         ],
@@ -1189,7 +1196,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{program}/seasons/{season}',
+                    '/{slug}/seasons/{season}',
                 ],
                 'name' => [
                     'season_show',
@@ -1205,21 +1212,47 @@ return [[
 19 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+            clone ($p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter')),
+            clone $p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'],
         ],
         null,
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{program}/seasons/{season}/episode/{episode}',
+                    '/{programSlug}/seasons/{season}/episode/{episodeSlug}',
                 ],
                 'name' => [
                     'episode_show',
                 ],
             ],
+            'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter' => [
+                'name' => [
+                    1 => 'program',
+                    'episode',
+                ],
+                'class' => [
+                    1 => 'App\\Entity\\Program',
+                    'App\\Entity\\Episode',
+                ],
+                'options' => [
+                    1 => [
+                        'mapping' => [
+                            'programSlug' => 'slug',
+                        ],
+                    ],
+                    [
+                        'mapping' => [
+                            'episodeSlug' => 'slug',
+                        ],
+                    ],
+                ],
+            ],
         ],
         [
             $o[0],
+            $o[1],
+            $o[2],
         ],
         []
     );
@@ -1307,7 +1340,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/{season}',
                 ],
                 'name' => [
                     'season_show',
@@ -1334,7 +1367,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}/edit',
+                    '/{season}/edit',
                 ],
                 'name' => [
                     'season_edit',
@@ -1362,7 +1395,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/{season}',
                 ],
                 'name' => [
                     'season_delete',

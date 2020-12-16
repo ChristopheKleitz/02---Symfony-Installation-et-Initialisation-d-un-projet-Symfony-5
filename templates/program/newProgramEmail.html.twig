@@ -1,0 +1,31 @@
+{% extends 'layout/email.html.twig' %}
+
+{% block title %}
+    Une nouvelle série a vu le jour !
+{% endblock %}
+
+{% block body %}
+    {% apply inline_css(source('@styles/app.scss')) %}
+        <style>
+            body {
+                background-color: #4b4b4b;
+            }
+            h1 {
+                color: #fae60c;
+            }
+            p {
+                color: #d412fa;
+                text-align: center;
+            }
+            a {
+                color: white;
+            }
+        </style>
+        <h1>Nouvelle série {{ program.title }} crée</h1>
+        <p>Hello cher sériephile, un nouveau programme est apparu sur Wild Séries ! <br>
+            Viens vite découvrir {{ program.title }}</p>
+        <p>Un petit résumé pour te donner l'eau à la bouche: {{program.summary }}</p>
+        <p> Ne perds pas de temps, c'est par ici que ça se passe ! <br>
+            <a href="http://localhost:8000/programs/{{ program.slug }}"> Voir la série</a></p>
+    {% endapply %}
+{% endblock %}
