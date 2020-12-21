@@ -3,9 +3,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CommentType;
 use App\Form\ProgramType;
 use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -118,7 +120,6 @@ class ProgramController extends AbstractController
         $episodes = $this->getDoctrine()
             ->getRepository(Episode::class)
             ->findBy(['season' => $season]);
-//        var_dump($seasonNumber);
 
         return $this->render('program/season_show.html.twig',
         ['program' => $program,
@@ -134,14 +135,41 @@ class ProgramController extends AbstractController
      * @param Program $program
      * @param Season $season
      * @param Episode $episode
+     * @param Request $request
      * @return Response
      */
-    public function showEpisode(Program $program, Season $season, Episode $episode): Response
+    public function showEpisode(Program $program, Season $season, Episode $episode, Request $request): Response
     {
+        $seasons = $this->getDoctrine()
+            ->getRepository(Season::class)
+            ->findOneBy(['program' => $program, 'number' => $season]);
+
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $comment->setEpisode($episode);
+            $comment->setAuthor($user);
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('comment_index');
+        }
+
+        $comments = $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['episode' => $episode], ['id' => 'ASC'], 6);
+
         return $this->render('program/episode_show.html.twig',
             ['program' => $program,
-                'season' => $season,
-                'episode' => $episode
+                'season' => $seasons,
+                'episode' => $episode,
+                'form' => $form->createView(),
+                'comments' => $comments
             ]);
     }
 }

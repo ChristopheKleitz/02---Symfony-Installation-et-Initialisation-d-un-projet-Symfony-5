@@ -20,6 +20,11 @@ h2 {
     color: $third;
 }
 
+h3 {
+    color: $secondary;
+    text-align: center;
+}
+
 ul {
     list-style: none;
 }
@@ -136,6 +141,7 @@ tbody {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    margin-bottom: 30px;
     & label, button, legend {
         color: white;
     }
@@ -143,4 +149,32 @@ tbody {
 
 .centré {
     text-align: center;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    & form {
+        > label, .btn {
+            color: $third;
+        }
+        > input {
+            margin-bottom: 10px;
+        }
+        > button:hover {
+            color: $secondary;
+        }
+    }
+}
+
+.episode {
+    margin-bottom: 30px;
+    & h2 {
+        margin: 25px;
+    }
+}
+
+.rating {
+    justify-content: space-around;
 }

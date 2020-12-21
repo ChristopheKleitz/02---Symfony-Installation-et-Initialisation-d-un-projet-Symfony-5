@@ -1,0 +1,20 @@
+{% extends 'layout/base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %} Edit comment {% endblock %}
+
+{% block body %}
+    <h1>Edit Comment</h1>
+
+    <div class="center container-fluid">
+        <div class="col-lg-6">
+            {{ include('comment/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('comment/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+    <a href="{{ path('comment_index') }}">back to list</a>
+
+
+{% endblock %}

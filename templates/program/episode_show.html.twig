@@ -1,5 +1,7 @@
 {% extends 'layout/base.html.twig' %}
 
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 {% block title %}
     {{ program.title }} |  {{ episode.title }}
 {% endblock %}
@@ -19,9 +21,48 @@
                 Date de diffusion: {{ season.year }} <br>
                 {{ season.description }}
             </div>
-            <div><br>
-                <h2> Episode {{ episode.number }}: {{ episode.title }} </h2> <br>
+            <div class="episode">
+                <h1> Episode {{ episode.number }}: <span> <h2> {{ episode.title }} </h2></span> </h1>
                 {{ episode.synopsis }}
+            </div>
+                {% if app.user %}
+                    <h3>Laisse un commentaire</h3>
+                    <div class="center container-fluid">
+                        <div class="col-lg-6">
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+                            {{ form_widget(form) }}
+                            <input type='submit' value='Ajouter !'>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                {% endif %}
+
+            <h3>Derniers avis</h3>
+            <div class="container-fluid">
+                <div class="row index">
+                {% for comment in comments %}
+                    <div class="col-lg-4">
+                            <div class="text-white">
+                                <h5>
+                                    {{ comment.author.surname }}
+                                </h5>
+                                <div class="tab">
+                                    <p>
+                                        Note: {{ comment.rate }} <br>
+                                        {{ comment.comment }}
+                                    </p>
+                                </div>
+                            </div>
+                    </div>
+                        {% else %}
+                            <div class="text-white">
+                                <h5>
+                                    Aucun commentaire pour l'instant
+                                </h5>
+                            </div>
+                {% endfor %}
+                </div>
                 <div class="retour">
                     <a href="{{ path('program_season_show', {slug : program.slug, season : season.number}) }}">
                         Retour à la fiche de la saison
@@ -32,4 +73,3 @@
     </div>
 
 {% endblock %}
-

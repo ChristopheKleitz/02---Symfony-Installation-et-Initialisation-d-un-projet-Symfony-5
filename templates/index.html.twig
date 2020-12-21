@@ -3,5 +3,18 @@
 {% block body %}
 
     <h1>Bienvenue sur {{ website }}</h1>
+    <div class="centré">
+        <h2> Prêt
+            {% if app.user %}
+            {% if app.user.surname  %}
+            {{ app.user.surname }}
+            {% else %}
+            {{ app.user.firstname }}
+            {% endif %}
+            {% endif %}
+            pour le bingewatching ?</h2>
+        <img src="{{ asset('build/dogTV.gif') }}" alt="Dog watching TV">
+    </div>
+
 
 {% endblock %}

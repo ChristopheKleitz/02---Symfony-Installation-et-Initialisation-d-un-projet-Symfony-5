@@ -20,6 +20,11 @@ return [
     'category_index' => [[], ['_controller' => 'App\\Controller\\CategoryController::index'], [], [['text', '/categories/']], [], []],
     'category_new' => [[], ['_controller' => 'App\\Controller\\CategoryController::new'], [], [['text', '/categories/new']], [], []],
     'category_show' => [['categoryName'], ['_controller' => 'App\\Controller\\CategoryController::show'], [], [['variable', '/', '[^/]++', 'categoryName', true], ['text', '/categories']], [], []],
+    'comment_index' => [[], ['_controller' => 'App\\Controller\\CommentController::index'], [], [['text', '/comment/']], [], []],
+    'comment_new' => [[], ['_controller' => 'App\\Controller\\CommentController::new'], [], [['text', '/comment/new']], [], []],
+    'comment_show' => [['id'], ['_controller' => 'App\\Controller\\CommentController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/comment']], [], []],
+    'comment_edit' => [['id'], ['_controller' => 'App\\Controller\\CommentController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/comment']], [], []],
+    'comment_delete' => [['id'], ['_controller' => 'App\\Controller\\CommentController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/comment']], [], []],
     'app_index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
     'episode_index' => [[], ['_controller' => 'App\\Controller\\EpisodeController::index'], [], [['text', '/episode/']], [], []],
     'episode_new' => [[], ['_controller' => 'App\\Controller\\EpisodeController::new'], [], [['text', '/episode/new']], [], []],
@@ -36,4 +41,6 @@ return [
     'season_show' => [['season'], ['_controller' => 'App\\Controller\\SeasonController::show'], [], [['variable', '/', '[^/]++', 'season', true], ['text', '/season']], [], []],
     'season_edit' => [['season'], ['_controller' => 'App\\Controller\\SeasonController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'season', true], ['text', '/season']], [], []],
     'season_delete' => [['season'], ['_controller' => 'App\\Controller\\SeasonController::delete'], [], [['variable', '/', '[^/]++', 'season', true], ['text', '/season']], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
+    'app_logout' => [[], [], [], [['text', '/logout']], [], []],
 ];
