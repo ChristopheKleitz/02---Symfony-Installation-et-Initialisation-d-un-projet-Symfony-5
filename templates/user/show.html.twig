@@ -1,0 +1,68 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block title %}
+    Mes informations
+{% endblock %}
+
+{% block body %}
+    <h1>My informations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ user.surname }}</td>
+            </tr>
+            <tr>
+                <th>Bio</th>
+                <td>{{ user.bio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Vos derniers commentaires</h1>
+
+    <div class="container-fluid">
+        <div class="row index">
+            {% for comment in comments %}
+            <div class="col-lg-4 text-white comment">
+                <h5>Program: <small class="text-white">{{ comment.episode.season.program.title }} </small> </h5>
+                <h5>Season: <small class="text-white">{{ comment.episode.season.number }} </small> </h5>
+                <h5>Episode: <small class="text-white">{{ comment.episode.title }} </small> </h5>
+                <h5>Rate: <small class="text-white">{{ comment.rate }} </small> </h5>
+                <h5>Comment: <small class="text-white">{{ comment.comment }} </small> </h5>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="retour">
+        <a class="btn" role="button" href="{{ path('user_edit', {user: user.id}) }}">Edit</a>
+        {{ include('user/_delete_form.html.twig') }}
+            <a class="lien" href="{{ path('user_index') }}">back to list</a>
+    </div>
+{% endblock %}

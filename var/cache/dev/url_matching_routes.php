@@ -26,6 +26,9 @@ return [
         '/season' => [[['_route' => 'season_index', '_controller' => 'App\\Controller\\SeasonController::index'], null, ['GET' => 0], null, true, false, null]],
         '/season/new' => [[['_route' => 'season_new', '_controller' => 'App\\Controller\\SeasonController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\SecurityController::register'], null, null, null, false, false, null]],
+        '/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/user/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
@@ -77,6 +80,11 @@ return [
                     .'|/edit(*:480)'
                     .'|(*:488)'
                 .')'
+                .'|/user/([^/]++)(?'
+                    .'|(*:514)'
+                    .'|/edit(*:527)'
+                    .'|(*:535)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -102,8 +110,11 @@ return [
         438 => [[['_route' => 'program_delete', '_controller' => 'App\\Controller\\ProgramController::delete'], ['program'], ['DELETE' => 0], null, false, true, null]],
         467 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['season'], ['GET' => 0], null, false, true, null]],
         480 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        488 => [
-            [['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null],
+        488 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null]],
+        514 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['user'], ['GET' => 0], null, false, true, null]],
+        527 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['user'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        535 => [
+            [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
