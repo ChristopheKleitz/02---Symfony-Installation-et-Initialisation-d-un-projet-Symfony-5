@@ -15,25 +15,29 @@
         <div class="media-body">
             <h1 class="mt-0"> {{ program.title }} </h1>
             <h1> Saison {{ season.number }} </h1>
-            <div class="text-white">
+            <div class="text-white presentation">
                 Date de diffusion: {{ season.year }} <br>
                 {{ season.description }}
             </div>
             <div>
-                <br>
+                <p>
                 Liste des épisodes:
-                <div class="tab"><br>
+                </p>
+                <div class="row index ">
                     {% for episode in episodes %}
-                        Episode {{ episode.number }}: {{ episode.title }} <br>
+                    <div class="col-lg-6">
+                        Episode {{ episode.number }}: <br>
+                            <span class="text-white"> {{ episode.title }} </span> <br>
                         <a class="tab" href="{{ path('program_episode_show', {programSlug: program.slug, season: season.number, episodeSlug: episode.slug}) }}">
                             Voir la fiche de l'épisode
-                        </a><br>
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
             <div class="retour">
                 <br><br>
-                <a href="{{ path('program_show', {slug : program.slug}) }}">
+                <a class="lien" href="{{ path('program_show', {slug : program.slug}) }}">
                     Retour à la fiche du programme
                 </a>
             </div>

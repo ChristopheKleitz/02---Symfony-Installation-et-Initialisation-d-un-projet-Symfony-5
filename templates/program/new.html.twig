@@ -11,12 +11,8 @@
     <h1> Envie d'ajouter une nouvelle série ?</h1>
 
     <div class="center container-fluid">
-        <div class="col-lg-4">
-            {{ form_start(form) }}
-            {{ form_errors(form) }}
-            {{ form_widget(form) }}
-            <input type='submit' value='Ajouter !'>
-            {{ form_end(form) }}
+        <div class="col-lg-6">
+            {{ include('program/_form.html.twig', {'button_label': 'Ajouter la série'}) }}
         </div>
     </div>
 

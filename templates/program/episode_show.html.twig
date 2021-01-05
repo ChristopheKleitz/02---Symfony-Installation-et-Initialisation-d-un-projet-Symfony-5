@@ -42,18 +42,25 @@
             <div class="container-fluid">
                 <div class="row index">
                 {% for comment in comments %}
-                    <div class="col-lg-4">
-                            <div class="text-white">
+                    <div class="col-lg-4 text-white comment">
                                 <h5>
-                                    {{ comment.author.surname }}
+                                    {% if comment.author.surname %}
+                                        {{ comment.author.surname }}
+                                    {% else %}
+                                        {{ comment.author.lastname ~' '~ comment.author.firstname }}
+                                    {% endif %}
                                 </h5>
                                 <div class="tab">
                                     <p>
                                         Note: {{ comment.rate }} <br>
                                         {{ comment.comment }}
                                     </p>
+                                    {% if app.user %}
+                                    {% if comment.author == app.user or is_granted("ROLE_ADMIN") %}
+                                        {{ include('comment/_delete_form.html.twig') }}
+                                    {% endif %}
+                                    {% endif %}
                                 </div>
-                            </div>
                     </div>
                         {% else %}
                             <div class="text-white">
@@ -64,7 +71,7 @@
                 {% endfor %}
                 </div>
                 <div class="retour">
-                    <a href="{{ path('program_season_show', {slug : program.slug, season : season.number}) }}">
+                    <a class="lien" href="{{ path('program_season_show', {slug : program.slug, season : season.number}) }}">
                         Retour à la fiche de la saison
                     </a>
                 </div>

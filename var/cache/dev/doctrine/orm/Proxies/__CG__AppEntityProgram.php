@@ -66,10 +66,10 @@ class Program extends \App\Entity\Program implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'summary', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'poster', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'seasons', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'actors', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'slug'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'summary', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'poster', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'seasons', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'actors', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'slug', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'owner'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'summary', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'poster', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'seasons', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'actors', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'slug'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'summary', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'poster', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'seasons', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'actors', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'slug', '' . "\0" . 'App\\Entity\\Program' . "\0" . 'owner'];
     }
 
     /**
@@ -365,6 +365,28 @@ class Program extends \App\Entity\Program implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSlug', [$slug]);
 
         return parent::setSlug($slug);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOwner(): ?\App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOwner', []);
+
+        return parent::getOwner();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOwner(?\App\Entity\User $owner): \App\Entity\Program
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOwner', [$owner]);
+
+        return parent::setOwner($owner);
     }
 
 }

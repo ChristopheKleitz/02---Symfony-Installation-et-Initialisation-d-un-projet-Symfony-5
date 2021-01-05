@@ -30,6 +30,10 @@ class ProgramType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,
+                'attr' =>
+                [
+                    'class' => 'program_actors'
+                ],
             ])
         ;
     }

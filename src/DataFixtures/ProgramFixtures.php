@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Program;
+use App\Entity\User;
 use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -88,6 +89,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setSummary($data['summary']);
             $program->setCategory($this->getReference($data['category']));
             $program->setPoster($data['poster']);
+            $program->setOwner($this->getReference('admin'));
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
             $manager->persist($program);

@@ -30,29 +30,7 @@ class EpisodeType extends AbstractType
                 [
                     'class' => Season::class,
                     'choice_label' => 'number',
-
-                    /*'class' => Program::class,
-                    'choice_label' => 'title',
-                    'label' => 'Program',
-                    'placeholder' => 'Choose a program',*/
-                ])
-        ;
-
-        /*$builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) {
-                $form = $event->getForm();
-                $data = $event->getData();
-                $season = $data->getSeason();
-                $positions = null === $season ? array() : $season->getNumber();
-
-                $form->add('season', EntityType::class, array(
-                    'class' => Season::class,
-                    'placeholder' => 'Which season ?',
-                    'choice_label' => 'number',
-                ));
-            }
-        );*/
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

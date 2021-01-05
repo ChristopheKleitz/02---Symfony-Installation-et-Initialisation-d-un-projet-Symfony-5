@@ -17,6 +17,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
 /**
@@ -63,13 +64,16 @@ class ProgramController extends AbstractController
             // Deal with the submitted data
             // Get the Entity Manager
             $entityManager = $this->getDoctrine()->getManager();
-            //Slugify the URL
+            // Set owner of the program
+            $program->setOwner($this->getUser());
+            // Slugify the URL
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
             // Persist Category Object
             $entityManager->persist($program);
             // Flush the persisted object
             $entityManager->flush();
+            // Send email when new program is created
             $email = ( new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to('a2ebbed13a-2232dc@inbox.mailtrap.io')
@@ -86,8 +90,6 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * Getting a program by id
-     *
      * @Route("/show/{slug}", name="show")
      * @param Program $program
      * @return Response
@@ -157,7 +159,12 @@ class ProgramController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('comment_index');
+            return $this->redirectToRoute('program_episode_show',
+            [
+                'programSlug' => $program->getSlug(),
+                'season' => $season->getNumber(),
+                'episodeSlug' => $episode->getSlug(),
+            ]);
         }
 
         $comments = $this->getDoctrine()
@@ -171,5 +178,48 @@ class ProgramController extends AbstractController
                 'form' => $form->createView(),
                 'comments' => $comments
             ]);
+    }
+
+    /**
+     * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Program $program
+     * @return Response
+     */
+    public function edit(Request $request, Program $program): Response
+    {
+        // Check wether the logged in user is the owner of the program
+        if (!($this->getUser() == $program->getOwner())) {
+            // If not the owner, throws a 403 Access Denied exception
+        throw new AccessDeniedException('Only the owner can edit the program!');
+        }
+
+        $form = $this->createForm(ProgramType::class, $program);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('program_index');
+        }
+
+        return $this->render('program/edit.html.twig', [
+            'program' => $program,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{program}", name="delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Program $program): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$program->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($program);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('program_index');
     }
 }

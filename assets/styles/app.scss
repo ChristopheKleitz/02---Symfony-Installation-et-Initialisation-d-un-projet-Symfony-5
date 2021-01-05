@@ -78,6 +78,16 @@ a:link {
     text-align: center;
 }
 
+a.lien {
+        color: $secondary;
+        > :visited {
+            text-decoration: none;
+        }
+        > :hover {
+            color: $third;
+        }
+    }
+
 .actors {
     display: flex;
     justify-content: space-around;
@@ -108,7 +118,7 @@ a:link {
 }
 
 .tab {
-    margin-left: 4em;
+    margin-left: 5em;
 }
 
 .ajout {
@@ -177,4 +187,35 @@ tbody {
 
 .rating {
     justify-content: space-around;
+}
+
+form .btn:hover {
+    color: $secondary;
+}
+
+.program_actors {
+    display: grid;
+    grid: auto / 1fr 1fr;
+    text-align: initial;
+    & .form-check {
+        padding-left: 5rem;
+    }
+}
+
+.presentation {
+    margin-bottom: 15px;
+}
+
+.comment {
+    & h5 {
+        color: $third;
+    }
+    & .tab form {
+        > .btn {
+            color: white;
+        }
+        > button:hover {
+            color: $secondary;
+        }
+    }
 }

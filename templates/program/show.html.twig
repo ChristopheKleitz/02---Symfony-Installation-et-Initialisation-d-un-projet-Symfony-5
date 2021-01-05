@@ -13,7 +13,11 @@
     <div class="media">
         <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
         <div class="media-body">
-            <h1 class="mt-0"> {{ program.title }} </h1>
+            <h1 class="mt-0"> {{ program.title }}
+            {% if is_granted("ROLE_ADMIN") or app.user == program.owner %}
+                <p> <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a> </p>
+            {%endif%}
+            </h1>
             <p class="text-white"> {{ program.summary }} </p>
             <p> Catégorie: <span class="text-white"> {{ program.category.name }} </span></p>
             <div class="container-fluid">
@@ -43,8 +47,9 @@
                     </li>
                 {% endfor %}
             </ul>
+
             <div class="retour">
-                <a href="{{ path('program_index') }}">
+                <a class="lien" href="{{ path('program_index') }}">
                     Retour à la liste des programmes
                 </a>
             </div>

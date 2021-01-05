@@ -13,12 +13,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/season")
+ * @Route("/season", name="season_")
  */
 class SeasonController extends AbstractController
 {
     /**
-     * @Route("/", name="season_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      */
     public function index(SeasonRepository $seasonRepository): Response
     {
@@ -29,7 +29,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="season_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -52,7 +52,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{season}", name="season_show", methods={"GET"})
+     * @Route("/{season}", name="show", methods={"GET"})
      */
     public function show(Season $season): Response
     {
@@ -62,7 +62,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{season}/edit", name="season_edit", methods={"GET","POST"})
+     * @Route("/{season}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Season $season): Response
     {
@@ -82,7 +82,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{season}", name="season_delete", methods={"DELETE"})
+     * @Route("/{season}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Season $season): Response
     {

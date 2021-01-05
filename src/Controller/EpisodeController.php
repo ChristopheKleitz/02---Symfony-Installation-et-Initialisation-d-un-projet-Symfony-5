@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Episode;
+use App\Entity\Program;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
 use App\Repository\ProgramRepository;
@@ -25,10 +26,12 @@ class EpisodeController extends AbstractController
      * @param EpisodeRepository $episodeRepository
      * @return Response
      */
-    public function index(EpisodeRepository $episodeRepository): Response
+    public function index(EpisodeRepository $episodeRepository, ProgramRepository $programRepository): Response
     {
+        $programs = $programRepository->findAll();
         return $this->render('episode/index.html.twig', [
             'episodes' => $episodeRepository->findAll(),
+            'programs' => $programs
         ]);
     }
 
