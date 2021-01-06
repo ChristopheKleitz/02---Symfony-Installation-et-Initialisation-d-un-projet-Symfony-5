@@ -8,12 +8,12 @@
     <h1>Ajouter une nouvelle saison</h1>
 
     <div class="center container-fluid">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             {{ include('season/_form.html.twig', {'button_label': 'Ajouter la saison'}) }}
         </div>
     </div>
 
     <div class="retour">
-    <a href="{{ path('season_index') }}">Retour à l'index</a>
+    <a class="lien" href="{{ path('season_index') }}">Retour à l'index</a>
     </div>
 {% endblock %}

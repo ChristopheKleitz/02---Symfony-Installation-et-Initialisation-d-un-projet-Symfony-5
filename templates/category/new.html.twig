@@ -1,5 +1,7 @@
 {% extends "layout/base.html.twig" %}
 
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 {% block title %}
     {{ parent() }}
 {% endblock %}
@@ -12,10 +14,10 @@
 
     <h1> Envie d'ajouter une nouvelle catégorie ?</h1>
 
-    <div class="ajout">
+    <div class="center">
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type='submit' value='Ajouter !'>
+        <button class="btn">Ajouter !</button>
         {{ form_end(form) }}
     </div>
 
