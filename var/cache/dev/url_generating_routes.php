@@ -31,6 +31,7 @@ return [
     'episode_show' => [['slug'], ['_controller' => 'App\\Controller\\EpisodeController::show'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/episode']], [], []],
     'episode_edit' => [['slug'], ['_controller' => 'App\\Controller\\EpisodeController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/episode']], [], []],
     'episode_delete' => [['slug'], ['_controller' => 'App\\Controller\\EpisodeController::delete'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/episode']], [], []],
+    'program_indexAdmin' => [[], ['_controller' => 'App\\Controller\\ProgramController::indexAdmin'], [], [['text', '/programs/index']], [], []],
     'program_index' => [[], ['_controller' => 'App\\Controller\\ProgramController::index'], [], [['text', '/programs/']], [], []],
     'program_new' => [[], ['_controller' => 'App\\Controller\\ProgramController::new'], [], [['text', '/programs/new']], [], []],
     'program_show' => [['slug'], ['_controller' => 'App\\Controller\\ProgramController::show'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/programs/show']], [], []],

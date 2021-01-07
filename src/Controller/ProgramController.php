@@ -27,6 +27,18 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
  */
 class ProgramController extends AbstractController
 {
+
+    /**
+     * @Route("/index", name="indexAdmin")
+     */
+    public function indexAdmin(ProgramRepository $programRepository)
+    {
+        return $this->render('program/indexAdmin.html.twig',
+            [
+                'programs' => $programRepository->findAll(),
+            ]);
+    }
+
     /**
      * Show all row from Program's Entity
      *
@@ -84,6 +96,8 @@ class ProgramController extends AbstractController
             $entityManager->persist($program);
             // Flush the persisted object
             $entityManager->flush();
+            // Add flash message
+            $this->addFlash('success', 'The new program '. $program->getTitle() .' has been created');
             // Send email when new program is created
             $email = ( new Email())
                 ->from($this->getParameter('mailer_from'))
@@ -92,7 +106,7 @@ class ProgramController extends AbstractController
                 ->html($this->renderView('program/newProgramEmail.html.twig', [ 'program' => $program]));
             $mailer->send($email);
             // Finally redirect to categories list
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('program_show', ['slug' => $program->getSlug()]);
         }
         // Render the form
         return $this->render('program/new.html.twig', [
@@ -210,6 +224,7 @@ class ProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'The new program '. $program->getTitle() .' has been created');
 
             return $this->redirectToRoute('program_index');
         }
@@ -229,6 +244,7 @@ class ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+            $this->addFlash('danger', 'The program '. $program->getTitle() .' has been deleted');
         }
 
         return $this->redirectToRoute('program_index');

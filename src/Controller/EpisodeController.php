@@ -62,6 +62,8 @@ class EpisodeController extends AbstractController
             $episode->setSlug($slug);
             $entityManager->persist($episode);
             $entityManager->flush();
+            $this->addFlash('success', 'Episode '. $episode->getNumber() .' for the 
+            program '. $episode->getSeason()->getProgram()->getTitle(). ' has been created');
             $program = $episode->getSeason()->getProgram();
             $season = $episode->getSeason();
             $email = ( new Email())
@@ -113,6 +115,8 @@ class EpisodeController extends AbstractController
             $slug = $slugify->generate($episode->getTitle());
             $episode->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Episode '. $episode->getNumber() .' for the 
+            program '. $episode->getSeason()->getProgram()->getTitle(). ' has been edited');
 
             return $this->redirectToRoute('episode_index');
         }
@@ -135,6 +139,8 @@ class EpisodeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($episode);
             $entityManager->flush();
+            $this->addFlash('danger', 'Episode '. $episode->getNumber() .' for the 
+            program '. $episode->getSeason()->getProgram()->getTitle(). ' has been deleted');
         }
 
         return $this->redirectToRoute('episode_index');
