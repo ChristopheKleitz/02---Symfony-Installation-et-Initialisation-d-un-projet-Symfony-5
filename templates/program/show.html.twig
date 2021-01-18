@@ -14,6 +14,11 @@
         <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h1 class="mt-0"> {{ program.title }}
+                {% if app.user %}
+                    <a id="watchlist">
+                        <i id="watchlistIcon" class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist" data-href="{{ path("program_watchlist", { "id": program.id}) }}"></i>
+                    </a>
+                {% endif %}
             {% if is_granted("ROLE_ADMIN") or app.user == program.owner %}
                 <p> <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a> </p>
             {%endif%}
@@ -47,16 +52,16 @@
                     </li>
                 {% endfor %}
             </ul>
-
             <div class="retour">
                 <a class="lien" href="{{ path('program_index') }}">
                     Retour à la liste des programmes
                 </a>
             </div>
-
         </div>
     </div>
+{% endblock %}
 
-
-
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('watchlist') }}
 {% endblock %}

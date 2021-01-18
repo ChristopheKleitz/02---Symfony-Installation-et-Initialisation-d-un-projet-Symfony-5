@@ -5715,6 +5715,13 @@
         <argument key="season" type="service" id=".errored..service_locator.LFdZtJt.App\Entity\Season"/>
       </argument>
     </service>
+    <service id=".service_locator.KKWZSFE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="program" type="service" id=".errored..service_locator.KKWZSFE.App\Entity\Program"/>
+      </argument>
+    </service>
     <service id=".service_locator.J6iJgo9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5753,7 +5760,7 @@
         <argument key="user" type="service" id=".errored..service_locator.hEwcf7A.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.78o.m8Q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.W6qOHGz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActorController::show" type="service" id=".service_locator.3nrNJeC"/>
@@ -5767,6 +5774,7 @@
         <argument key="App\Controller\EpisodeController::index" type="service" id=".service_locator.._zoICr"/>
         <argument key="App\Controller\EpisodeController::new" type="service" id=".service_locator.cmEXzXk"/>
         <argument key="App\Controller\EpisodeController::show" type="service" id=".service_locator.OKz7Vr9"/>
+        <argument key="App\Controller\ProgramController::addToWatchlist" type="service" id=".service_locator.KKWZSFE"/>
         <argument key="App\Controller\ProgramController::delete" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController::edit" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController::index" type="service" id=".service_locator.FaUv1vw"/>
@@ -5802,6 +5810,7 @@
         <argument key="App\Controller\EpisodeController:index" type="service" id=".service_locator.._zoICr"/>
         <argument key="App\Controller\EpisodeController:new" type="service" id=".service_locator.cmEXzXk"/>
         <argument key="App\Controller\EpisodeController:show" type="service" id=".service_locator.OKz7Vr9"/>
+        <argument key="App\Controller\ProgramController:addToWatchlist" type="service" id=".service_locator.KKWZSFE"/>
         <argument key="App\Controller\ProgramController:delete" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController:edit" type="service" id=".service_locator.6Q3SUSI"/>
         <argument key="App\Controller\ProgramController:index" type="service" id=".service_locator.FaUv1vw"/>
@@ -6340,12 +6349,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.78o.m8Q"/>
+      <argument type="service" id=".service_locator.W6qOHGz"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.78o.m8Q"/>
+      <argument type="service" id=".service_locator.W6qOHGz"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6367,6 +6376,7 @@
     <service id=".errored..service_locator.LFdZtJt.App\Entity\Episode" class="App\Entity\Episode"/>
     <service id=".errored..service_locator.LFdZtJt.App\Entity\Program" class="App\Entity\Program"/>
     <service id=".errored..service_locator.LFdZtJt.App\Entity\Season" class="App\Entity\Season"/>
+    <service id=".errored..service_locator.KKWZSFE.App\Entity\Program" class="App\Entity\Program"/>
     <service id=".errored..service_locator.cBD1iKn.App\Entity\Season" class="App\Entity\Season"/>
     <service id=".errored..service_locator.hEwcf7A.App\Entity\User" class="App\Entity\User"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -6769,7 +6779,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.78o.m8Q"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.W6qOHGz"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

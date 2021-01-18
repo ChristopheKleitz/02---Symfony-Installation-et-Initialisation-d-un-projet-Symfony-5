@@ -39,6 +39,7 @@ return [
     'program_episode_show' => [['programSlug', 'season', 'episodeSlug'], ['_controller' => 'App\\Controller\\ProgramController::showEpisode'], [], [['variable', '/', '[^/]++', 'episodeSlug', true], ['text', '/episode'], ['variable', '/', '[^/]++', 'season', true], ['text', '/seasons'], ['variable', '/', '[^/]++', 'programSlug', true], ['text', '/programs']], [], []],
     'program_edit' => [['slug'], ['_controller' => 'App\\Controller\\ProgramController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/programs']], [], []],
     'program_delete' => [['program'], ['_controller' => 'App\\Controller\\ProgramController::delete'], [], [['variable', '/', '[^/]++', 'program', true], ['text', '/programs']], [], []],
+    'program_watchlist' => [['id'], ['_controller' => 'App\\Controller\\ProgramController::addToWatchlist'], [], [['text', '/watchlist'], ['variable', '/', '[^/]++', 'id', true], ['text', '/programs']], [], []],
     'season_index' => [[], ['_controller' => 'App\\Controller\\SeasonController::index'], [], [['text', '/season/']], [], []],
     'season_new' => [[], ['_controller' => 'App\\Controller\\SeasonController::new'], [], [['text', '/season/new']], [], []],
     'season_show' => [['season'], ['_controller' => 'App\\Controller\\SeasonController::show'], [], [['variable', '/', '[^/]++', 'season', true], ['text', '/season']], [], []],

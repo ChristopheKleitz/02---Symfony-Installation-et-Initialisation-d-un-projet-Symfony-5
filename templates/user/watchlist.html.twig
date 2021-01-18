@@ -1,0 +1,16 @@
+{% extends'layout/base.html.twig' %}
+
+{% block title %}
+    Mes favoris
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Mes favoris
+    </h1>
+
+    {% if app.user %}
+        {{ app.user.name }}
+    {% endif %}
+{% endblock %}

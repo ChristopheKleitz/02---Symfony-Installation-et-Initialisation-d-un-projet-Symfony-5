@@ -72,19 +72,20 @@ return [
                                 .'|/episode/([^/]++)(*:416)'
                             .')'
                             .'|edit(*:429)'
+                            .'|watchlist(*:446)'
                         .')'
-                        .'|(*:438)'
+                        .'|(*:455)'
                     .')'
                 .')'
                 .'|/season/([^/]++)(?'
-                    .'|(*:467)'
-                    .'|/edit(*:480)'
-                    .'|(*:488)'
+                    .'|(*:484)'
+                    .'|/edit(*:497)'
+                    .'|(*:505)'
                 .')'
                 .'|/user/([^/]++)(?'
-                    .'|(*:514)'
-                    .'|/edit(*:527)'
-                    .'|(*:535)'
+                    .'|(*:531)'
+                    .'|/edit(*:544)'
+                    .'|(*:552)'
                 .')'
             .')/?$}sDu',
     ],
@@ -108,13 +109,14 @@ return [
         391 => [[['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['slug', 'season'], null, null, false, true, null]],
         416 => [[['_route' => 'program_episode_show', '_controller' => 'App\\Controller\\ProgramController::showEpisode'], ['programSlug', 'season', 'episodeSlug'], null, null, false, true, null]],
         429 => [[['_route' => 'program_edit', '_controller' => 'App\\Controller\\ProgramController::edit'], ['slug'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        438 => [[['_route' => 'program_delete', '_controller' => 'App\\Controller\\ProgramController::delete'], ['program'], ['DELETE' => 0], null, false, true, null]],
-        467 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['season'], ['GET' => 0], null, false, true, null]],
-        480 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        488 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null]],
-        514 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['user'], ['GET' => 0], null, false, true, null]],
-        527 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['user'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        535 => [
+        446 => [[['_route' => 'program_watchlist', '_controller' => 'App\\Controller\\ProgramController::addToWatchlist'], ['id'], null, null, false, false, null]],
+        455 => [[['_route' => 'program_delete', '_controller' => 'App\\Controller\\ProgramController::delete'], ['program'], ['DELETE' => 0], null, false, true, null]],
+        484 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['season'], ['GET' => 0], null, false, true, null]],
+        497 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        505 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null]],
+        531 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['user'], ['GET' => 0], null, false, true, null]],
+        544 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['user'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        552 => [
             [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
