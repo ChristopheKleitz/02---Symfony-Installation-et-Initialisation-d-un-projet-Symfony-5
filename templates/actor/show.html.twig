@@ -16,7 +16,7 @@
 
     <div class="centré">
         <h2>
-            Série dans lesquelles on a pu le voir:
+            {{ 'actor.program'|trans }}:
         </h2>
         <div>
             <ul>
@@ -28,14 +28,14 @@
                 </li>
                 {% else %}
                 <li>
-                    Aucune série pour l'instant
+                    {{ 'actor.program_empty'|trans }}
                 </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="retour">
             <a class="lien"  href="{{ path('actor_index') }}">
-                Retour à la liste des acteurs
+                {{ 'actor.back'|trans }}
             </a>
         </div>
     </div>

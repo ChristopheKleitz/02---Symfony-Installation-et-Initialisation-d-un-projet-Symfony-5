@@ -2,9 +2,9 @@
 
 {% block body %}
 
-    <h1>Bienvenue sur {{ website }}</h1>
+    <h1>{{ 'index.welcome'|trans }} {{ website }}</h1>
     <div class="centré">
-        <h2> Prêt
+        <h2> {{ 'index.ready'|trans }}
             {% if app.user %}
             {% if app.user.surname  %}
             {{ app.user.surname }}
@@ -12,11 +12,11 @@
             {{ app.user.firstname }}
             {% endif %}
             {% endif %}
-            pour le bingewatching ?</h2>
+            {{ 'index.for'|trans }} bingewatching ?</h2>
         <img src="{{ asset('build/dogTV.gif') }}" alt="Dog watching TV">
     </div>
 
-    <h2>Voici les dernières séries ajoutées</h2>
+    <h2>{{ 'index.last_programs'|trans }}</h2>
 
     <div class="container-fluid">
     <div class="row index">

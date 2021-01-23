@@ -13,23 +13,6 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/actors' => [[['_route' => 'actor_index', '_controller' => 'App\\Controller\\ActorController::index'], null, null, null, true, false, null]],
-        '/categories' => [[['_route' => 'category_index', '_controller' => 'App\\Controller\\CategoryController::index'], null, null, null, true, false, null]],
-        '/categories/new' => [[['_route' => 'category_new', '_controller' => 'App\\Controller\\CategoryController::new'], null, null, null, false, false, null]],
-        '/comment' => [[['_route' => 'comment_index', '_controller' => 'App\\Controller\\CommentController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/comment/new' => [[['_route' => 'comment_new', '_controller' => 'App\\Controller\\CommentController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
-        '/episode' => [[['_route' => 'episode_index', '_controller' => 'App\\Controller\\EpisodeController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/episode/new' => [[['_route' => 'episode_new', '_controller' => 'App\\Controller\\EpisodeController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/programs/index' => [[['_route' => 'program_indexAdmin', '_controller' => 'App\\Controller\\ProgramController::indexAdmin'], null, null, null, false, false, null]],
-        '/programs' => [[['_route' => 'program_index', '_controller' => 'App\\Controller\\ProgramController::index'], null, null, null, true, false, null]],
-        '/programs/new' => [[['_route' => 'program_new', '_controller' => 'App\\Controller\\ProgramController::new'], null, null, null, false, false, null]],
-        '/season' => [[['_route' => 'season_index', '_controller' => 'App\\Controller\\SeasonController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/season/new' => [[['_route' => 'season_new', '_controller' => 'App\\Controller\\SeasonController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
-        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\SecurityController::register'], null, null, null, false, false, null]],
-        '/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/user/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
@@ -49,43 +32,88 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/actors/([^/]++)(*:185)'
-                .'|/c(?'
-                    .'|ategories/([^/]++)(*:216)'
-                    .'|omment/([^/]++)(?'
-                        .'|(*:242)'
-                        .'|/edit(*:255)'
-                        .'|(*:263)'
-                    .')'
-                .')'
-                .'|/episode/([^/]++)(?'
-                    .'|(*:293)'
-                    .'|/edit(*:306)'
-                    .'|(*:314)'
-                .')'
-                .'|/programs/(?'
-                    .'|show/([^/]++)(*:349)'
-                    .'|([^/]++)(?'
-                        .'|/(?'
-                            .'|seasons/([^/]++)(?'
-                                .'|(*:391)'
-                                .'|/episode/([^/]++)(*:416)'
-                            .')'
-                            .'|edit(*:429)'
-                            .'|watchlist(*:446)'
+                .'|/(fr|en)(?'
+                    .'|/(?'
+                        .'|actors(?'
+                            .'|(*:193)'
+                            .'|/([^/]++)(*:210)'
                         .')'
-                        .'|(*:455)'
+                        .'|c(?'
+                            .'|ategories(?'
+                                .'|(*:235)'
+                                .'|/(?'
+                                    .'|new(*:250)'
+                                    .'|([^/]++)(*:266)'
+                                .')'
+                            .')'
+                            .'|omment(?'
+                                .'|(*:285)'
+                                .'|/(?'
+                                    .'|new(*:300)'
+                                    .'|([^/]++)(?'
+                                        .'|(*:319)'
+                                        .'|/edit(*:332)'
+                                        .'|(*:340)'
+                                    .')'
+                                .')'
+                            .')'
+                        .')'
+                        .'|episode(?'
+                            .'|(*:362)'
+                            .'|/(?'
+                                .'|new(*:377)'
+                                .'|([^/]++)(?'
+                                    .'|(*:396)'
+                                    .'|/edit(*:409)'
+                                    .'|(*:417)'
+                                .')'
+                            .')'
+                        .')'
+                        .'|programs(?'
+                            .'|/(?'
+                                .'|index(*:448)'
+                                .'|new(*:459)'
+                                .'|show/([^/]++)(*:480)'
+                                .'|([^/]++)(?'
+                                    .'|/(?'
+                                        .'|seasons/([^/]++)(?'
+                                            .'|(*:522)'
+                                            .'|/episode/([^/]++)(*:547)'
+                                        .')'
+                                        .'|edit(*:560)'
+                                        .'|watchlist(*:577)'
+                                    .')'
+                                    .'|(*:586)'
+                                .')'
+                            .')'
+                            .'|(*:596)'
+                        .')'
+                        .'|season(?'
+                            .'|(*:614)'
+                            .'|/(?'
+                                .'|new(*:629)'
+                                .'|([^/]++)(?'
+                                    .'|(*:648)'
+                                    .'|/edit(*:661)'
+                                    .'|(*:669)'
+                                .')'
+                            .')'
+                        .')'
+                        .'|login(*:685)'
+                        .'|register(*:701)'
+                        .'|user(?'
+                            .'|(*:716)'
+                            .'|/(?'
+                                .'|new(*:731)'
+                                .'|([^/]++)(?'
+                                    .'|(*:750)'
+                                    .'|/edit(*:763)'
+                                    .'|(*:771)'
+                                .')'
+                            .')'
+                        .')'
                     .')'
-                .')'
-                .'|/season/([^/]++)(?'
-                    .'|(*:484)'
-                    .'|/edit(*:497)'
-                    .'|(*:505)'
-                .')'
-                .'|/user/([^/]++)(?'
-                    .'|(*:531)'
-                    .'|/edit(*:544)'
-                    .'|(*:552)'
+                    .'|(*:783)'
                 .')'
             .')/?$}sDu',
     ],
@@ -97,27 +125,44 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        185 => [[['_route' => 'actor_show', '_controller' => 'App\\Controller\\ActorController::show'], ['actor'], null, null, false, true, null]],
-        216 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::show'], ['categoryName'], null, null, false, true, null]],
-        242 => [[['_route' => 'comment_show', '_controller' => 'App\\Controller\\CommentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        255 => [[['_route' => 'comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        263 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        293 => [[['_route' => 'episode_show', '_controller' => 'App\\Controller\\EpisodeController::show'], ['slug'], ['GET' => 0], null, false, true, null]],
-        306 => [[['_route' => 'episode_edit', '_controller' => 'App\\Controller\\EpisodeController::edit'], ['slug'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        314 => [[['_route' => 'episode_delete', '_controller' => 'App\\Controller\\EpisodeController::delete'], ['slug'], ['DELETE' => 0], null, false, true, null]],
-        349 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['slug'], null, null, false, true, null]],
-        391 => [[['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['slug', 'season'], null, null, false, true, null]],
-        416 => [[['_route' => 'program_episode_show', '_controller' => 'App\\Controller\\ProgramController::showEpisode'], ['programSlug', 'season', 'episodeSlug'], null, null, false, true, null]],
-        429 => [[['_route' => 'program_edit', '_controller' => 'App\\Controller\\ProgramController::edit'], ['slug'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        446 => [[['_route' => 'program_watchlist', '_controller' => 'App\\Controller\\ProgramController::addToWatchlist'], ['id'], null, null, false, false, null]],
-        455 => [[['_route' => 'program_delete', '_controller' => 'App\\Controller\\ProgramController::delete'], ['program'], ['DELETE' => 0], null, false, true, null]],
-        484 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['season'], ['GET' => 0], null, false, true, null]],
-        497 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        505 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['season'], ['DELETE' => 0], null, false, true, null]],
-        531 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['user'], ['GET' => 0], null, false, true, null]],
-        544 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['user'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        552 => [
-            [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+        193 => [[['_route' => 'actor_index', '_controller' => 'App\\Controller\\ActorController::index'], ['_locale'], null, null, true, false, null]],
+        210 => [[['_route' => 'actor_show', '_controller' => 'App\\Controller\\ActorController::show'], ['_locale', 'actor'], null, null, false, true, null]],
+        235 => [[['_route' => 'category_index', '_controller' => 'App\\Controller\\CategoryController::index'], ['_locale'], null, null, true, false, null]],
+        250 => [[['_route' => 'category_new', '_controller' => 'App\\Controller\\CategoryController::new'], ['_locale'], null, null, false, false, null]],
+        266 => [[['_route' => 'category_show', '_controller' => 'App\\Controller\\CategoryController::show'], ['_locale', 'categoryName'], null, null, false, true, null]],
+        285 => [[['_route' => 'comment_index', '_controller' => 'App\\Controller\\CommentController::index'], ['_locale'], ['GET' => 0], null, true, false, null]],
+        300 => [[['_route' => 'comment_new', '_controller' => 'App\\Controller\\CommentController::new'], ['_locale'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        319 => [[['_route' => 'comment_show', '_controller' => 'App\\Controller\\CommentController::show'], ['_locale', 'id'], ['GET' => 0], null, false, true, null]],
+        332 => [[['_route' => 'comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['_locale', 'id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        340 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['_locale', 'id'], ['DELETE' => 0], null, false, true, null]],
+        362 => [[['_route' => 'episode_index', '_controller' => 'App\\Controller\\EpisodeController::index'], ['_locale'], ['GET' => 0], null, true, false, null]],
+        377 => [[['_route' => 'episode_new', '_controller' => 'App\\Controller\\EpisodeController::new'], ['_locale'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        396 => [[['_route' => 'episode_show', '_controller' => 'App\\Controller\\EpisodeController::show'], ['_locale', 'slug'], ['GET' => 0], null, false, true, null]],
+        409 => [[['_route' => 'episode_edit', '_controller' => 'App\\Controller\\EpisodeController::edit'], ['_locale', 'slug'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        417 => [[['_route' => 'episode_delete', '_controller' => 'App\\Controller\\EpisodeController::delete'], ['_locale', 'slug'], ['DELETE' => 0], null, false, true, null]],
+        448 => [[['_route' => 'program_indexAdmin', '_controller' => 'App\\Controller\\ProgramController::indexAdmin'], ['_locale'], null, null, false, false, null]],
+        459 => [[['_route' => 'program_new', '_controller' => 'App\\Controller\\ProgramController::new'], ['_locale'], null, null, false, false, null]],
+        480 => [[['_route' => 'program_show', '_controller' => 'App\\Controller\\ProgramController::show'], ['_locale', 'slug'], null, null, false, true, null]],
+        522 => [[['_route' => 'program_season_show', '_controller' => 'App\\Controller\\ProgramController::showSeason'], ['_locale', 'slug', 'season'], null, null, false, true, null]],
+        547 => [[['_route' => 'program_episode_show', '_controller' => 'App\\Controller\\ProgramController::showEpisode'], ['_locale', 'programSlug', 'season', 'episodeSlug'], null, null, false, true, null]],
+        560 => [[['_route' => 'program_edit', '_controller' => 'App\\Controller\\ProgramController::edit'], ['_locale', 'slug'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        577 => [[['_route' => 'program_watchlist', '_controller' => 'App\\Controller\\ProgramController::addToWatchlist'], ['_locale', 'id'], null, null, false, false, null]],
+        586 => [[['_route' => 'program_delete', '_controller' => 'App\\Controller\\ProgramController::delete'], ['_locale', 'program'], ['DELETE' => 0], null, false, true, null]],
+        596 => [[['_route' => 'program_index', '_controller' => 'App\\Controller\\ProgramController::index'], ['_locale'], null, null, true, false, null]],
+        614 => [[['_route' => 'season_index', '_controller' => 'App\\Controller\\SeasonController::index'], ['_locale'], ['GET' => 0], null, true, false, null]],
+        629 => [[['_route' => 'season_new', '_controller' => 'App\\Controller\\SeasonController::new'], ['_locale'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        648 => [[['_route' => 'season_show', '_controller' => 'App\\Controller\\SeasonController::show'], ['_locale', 'season'], ['GET' => 0], null, false, true, null]],
+        661 => [[['_route' => 'season_edit', '_controller' => 'App\\Controller\\SeasonController::edit'], ['_locale', 'season'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        669 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['_locale', 'season'], ['DELETE' => 0], null, false, true, null]],
+        685 => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], ['_locale'], null, null, false, false, null]],
+        701 => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\SecurityController::register'], ['_locale'], null, null, false, false, null]],
+        716 => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], ['_locale'], ['GET' => 0], null, true, false, null]],
+        731 => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\UserController::new'], ['_locale'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        750 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['_locale', 'user'], ['GET' => 0], null, false, true, null]],
+        763 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['_locale', 'user'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        771 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['_locale', 'id'], ['DELETE' => 0], null, false, true, null]],
+        783 => [
+            [['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], ['_locale'], null, null, true, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

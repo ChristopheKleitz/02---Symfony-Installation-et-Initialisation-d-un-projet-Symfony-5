@@ -1747,6 +1747,9 @@
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/messages.en.yaml</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/security.en.yaml</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/validators.en.yaml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
@@ -1776,6 +1779,9 @@
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/security-core/Resources/translations/security.fr.xlf</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/messages.fr.yaml</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/security.fr.yaml</argument>
+            <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/translations/validators.fr.yaml</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>/home/christophe/Documents/Wild Code School/Quêtes Symfony/wild-series/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>

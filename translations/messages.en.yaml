@@ -1,0 +1,61 @@
+account:
+  register: Register
+  sign_in: Sign In
+  logout : Logout
+  my_account : My infos
+
+index:
+  ready: Ready
+  for: for
+  welcome: Welcome on
+  last_programs: Last added programs
+
+navbar:
+  category: Category
+  actor: Actors
+
+program:
+  index: All series from table Program
+  search: Search
+  category: Category
+  season: Season
+  episode: Episode
+  actor: Actors
+  back: Back to program's list
+  date: Date
+  episode_list: Episode's list
+  episode_show: See episode's info
+  back_program: Back to program's info
+  comment: Leave a comment
+  avis: Last comments
+  note: Note
+  no_comment: No comments
+  back_season: Back to season's info
+  new: Time to add a new program
+  view: See program's info
+  empty: No program yet
+
+episode:
+  new: A new episode has been released
+
+category:
+  index: All categories available
+  view: See the program from this category
+  empty: No category yet
+  new: Time to add a new category
+
+actor:
+  star: The two and only stars
+  index: Or there is these ones
+  empty: No actors yet
+  program: Program where he is acting
+  program_empty: No program with this actor yet
+  back: Back to actor's list
+
+general:
+  back: Back to home
+
+sign_in: Sign In
+email: Email
+password: Password
+login: Log In 

@@ -1,9 +1,7 @@
 document.querySelector('#watchlist').addEventListener('click', addToWatchlist);
 
 function addToWatchlist() {
-
-}
-/*// Get the link object you click in the DOM
+// Get the link object you click in the DOM
     let watchlistIcon = document.getElementById('watchlistIcon');
     let link = watchlistIcon.dataset.href;
 // Send an HTTP request with fetch to the URI defined in the href
@@ -20,4 +18,4 @@ function addToWatchlist() {
                 watchlistIcon.classList.add('far'); // Add the .far (empty heart) from classes in <i> element
             }
         });
-}*/
+}

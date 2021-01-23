@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <h1> Les deux seuls qui méritent d'être connus </h1>
+    <h1> {{ 'actor.star'|trans }} </h1>
     <div class="container-fluid actors">
         <div class="actor">
             <h2> Yavuz KUTUK </h2>
@@ -15,23 +15,21 @@
         </div>
     </div>
 
-    <div class="centré">
         <h1>
-            Ou sinon en voilà d'autres moins flamboyant
+            {{ 'actor.index'|trans }}
         </h1>
-        <ul>
+        <div class="row">
             {% for actor in actors %}
-            <li>
-                <a class="lien" href="{{ path('actor_show', {actor: actor.id}) }}">
-                    <h2>
-                        {{ actor.name }}
-                    </h2>
-                </a>
-            </li>
+                <div class="col-md-4">
+                    <a class="lien" href="{{ path('actor_show', {actor: actor.id}) }}">
+                        <h2>
+                            {{ actor.name }}
+                        </h2>
+                    </a>
+                </div>
             {% else %}
-            Aucun autre acteur n'en vaut vraiment la peine
+                {{ 'actor.empty'|trans }}
             {% endfor %}
-        </ul>
-    </div>
+        </div>
 
 {% endblock %}

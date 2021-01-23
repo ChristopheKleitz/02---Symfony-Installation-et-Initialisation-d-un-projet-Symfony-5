@@ -23,7 +23,7 @@
                         <h2 class="title">{{ loop.index }}/ {{ program.title }}</h2>
                         <p>{{ program.summary}}</p>
                         <a href="{{ path("program_show", { slug: program.slug }) }}">
-                            Voir la fiche
+                            {{ 'program.view'|trans }}
                         </a>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="container-fluid nav">
-        <a class="navbar-brand" href="/"><img src="{{ asset('build/wild_series_logo.png') }}" alt="logo"/>Wild Series</a>
+        <a class="navbar-brand" href="{{ path('app_index') }}"><img src="{{ asset('build/wild_series_logo.png') }}" alt="logo"/>Wild Series</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,12 +8,12 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/programs">Index <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('program_index') }}">Index <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
+                            {{ 'navbar.category'|trans }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {#{% for category in categories %}
@@ -27,7 +27,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/actors">Actors</a>
+                    <a class="nav-link" href="{{ path('actor_index') }}">{{ 'navbar.actor'|trans }}</a>
                 </li>
                 {% if app.user %}
                 <li class="nav-item">
@@ -65,12 +65,25 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     {% if app.user %}
-                        <a class="dropdown-item" href="{{ path('user_show', {user : app.user.id}) }}"> Mon compte</a>
-                        <a class="dropdown-item" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                        <a class="dropdown-item" href="{{ path('user_show', {user : app.user.id}) }}"> {{ 'account.my_account'|trans }}</a>
+                        <a class="dropdown-item" href="{{ path('app_logout') }}"> {{ 'account.logout'|trans }}</a>
                     {% else %}
-                        <a class="dropdown-item" href="{{ path('app_register') }}"> S'inscrire </a>
-                        <a class="dropdown-item" href="{{ path('app_login') }}"> Se connecter</a>
+                        <a class="dropdown-item" href="{{ path('app_register') }}"> {{ 'account.register'|trans }} </a>
+                        <a class="dropdown-item" href="{{ path('app_login') }}"> {{ 'account.sign_in'|trans }} </a>
                     {% endif %}
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Language
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a href="{{ path('app_index', {'_locale':'fr'}) }}" class="dropdown-item" hreflang="FR">
+                        <img src="{{ asset('build/flag/france.png') }}" alt="France">France
+                    </a>
+                    <a href="{{ path('app_index', {'_locale':'en'}) }}" class="dropdown-item">
+                        <img src="{{ asset('build/flag/UK.png') }}" alt="UK">UK
+                    </a>
                 </div>
             </div>
         </div>

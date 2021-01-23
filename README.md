@@ -63,3 +63,7 @@ https://www.loom.com/share/f87e77d9a1644a638ea680fde5c9fbfb
 ##Quest 24:
 
 https://www.loom.com/share/6ebf2cb97936419aae2e2f75bc618914
+
+##Quest 25:
+
+https://www.loom.com/share/23fd6622228244239bf50d507d67c536

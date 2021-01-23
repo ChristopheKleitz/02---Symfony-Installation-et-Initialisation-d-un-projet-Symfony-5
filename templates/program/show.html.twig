@@ -24,21 +24,21 @@
             {%endif%}
             </h1>
             <p class="text-white"> {{ program.summary }} </p>
-            <p> Catégorie: <span class="text-white"> {{ program.category.name }} </span></p>
+            <p> {{ 'program.category'|trans}}: <span class="text-white"> {{ program.category.name }} </span></p>
             <div class="container-fluid">
                 <div class="row index">
                     {% for season in seasons %}
                         <div class="col-lg-4">
                             <p>
                                 <a href="{{ path('program_season_show', {slug : program.slug, season : season.number}) }}" class="text-white">
-                                    Saison {{ season.number }}
+                                    {{ 'program.season'|trans }} {{ season.number }}
                                 </a>
                             </p>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-            <strong>Acteurs :</strong>
+            <strong>{{ 'program.actor'|trans }} :</strong>
             <ul>
                 {% for actor in program.actors %}
                     <li>
@@ -54,7 +54,7 @@
             </ul>
             <div class="retour">
                 <a class="lien" href="{{ path('program_index') }}">
-                    Retour à la liste des programmes
+                    {{ 'program.back'|trans}}
                 </a>
             </div>
         </div>

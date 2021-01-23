@@ -10,7 +10,7 @@
 
 {% block body %}
 
-    <h1>Toutes les catégories de la table Category</h1>
+    <h1> {{ 'category.index'|trans }}</h1>
     <div class="categories container-fluid">
         <div class="row index">
             {% for category in categories %}
@@ -19,12 +19,12 @@
                         {{ loop.index }}/ {{ category.name }}
                     </h2>
                     <a href="{{ path("category_show", { categoryName: category.name }) }}">
-                        Voir les séries de cette catégorie
+                        {{ 'category.view'|trans }}
                     </a>
                 </div>
 
             {% else %}
-                Aucune catégorie trouvée.
+            {{ 'category.empty'|trans }}
             {% endfor %}
         </div>
     </div>

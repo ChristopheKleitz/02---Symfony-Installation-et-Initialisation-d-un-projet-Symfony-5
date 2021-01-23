@@ -12,12 +12,12 @@
 
 {% block body %}
 
-    <h1>Toutes les séries de la table Program</h1>
+    <h1>{{ 'program.index'|trans }}</h1>
 
     <div class="center container-fluid">
         {{ form_start(form) }}
         {{ form_widget(form)}}
-        <button class="btn">Rechercher</button>
+        <button class="btn">{{ 'program.search'|trans }}</button>
         {{ form_end(form) }}
     </div>
 
@@ -34,19 +34,19 @@
                 <h3> Catégorie: {{ program.category.name }}</h3>
                 <p>{{ program.summary}}</p>
                 <a href="{{ path("program_show", { slug: program.slug }) }}">
-                    Voir la fiche
+                    {{ 'program.view'|trans }}
                 </a>
             </div>
         </div>
     {% else %}
-    Aucune série trouvée.
+            {{ 'program.empty'|trans }}
     {% endfor %}
         </div>
     </div>
 
     <div class="retour">
         <a class="lien" href="{{ path('app_index') }}">
-            Retour à l'acceuil
+            {{ 'general.back'|trans}}
         </a>
     </div>
 

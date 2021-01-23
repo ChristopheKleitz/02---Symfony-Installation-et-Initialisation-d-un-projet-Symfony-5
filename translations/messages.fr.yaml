@@ -1,0 +1,61 @@
+account:
+  register: S'inscrire
+  sign_in: Se connecter
+  logout : Se déconnecter
+  my_account : Mon compte
+
+index:
+  ready: Prêt
+  for: pour le
+  welcome: Bienvenue sur
+  last_programs: Les dernières séries ajoutées
+
+navbar:
+  category: Catégorie
+  actor: Acteur
+
+program:
+  index: Toutes les séries de la table Program
+  search: Rechercher
+  category: Catégorie
+  season: Saison
+  episode: Episode
+  actor: Acteurs
+  back: Retour à la liste des programme
+  date: Date de diffusion
+  episode_list: Liste des épisodes
+  episode_show: Voir la fiche de l'épisode
+  back_program: Retour à la fiche de la série
+  comment: Laisse un commentaire
+  avis: Derniers avis
+  note: Note
+  no_comment: Aucun commentaire
+  back_season: Retour à la fiche de la saison
+  new: Envie d'ajouter une nouvelle série
+  view: Voir la fiche
+  empty: Aucunes séries.
+
+episode:
+  new: Un nouvel épisode est sorti
+
+category:
+  index: Toutes les catégories disponibles
+  view: Voir les séries de cette catégorie
+  empty: Aucune catégorie existante
+  new: Envie d'ajouter une nouvelle catégorie
+
+actor:
+  star: Les deux seuls stars à connaitre
+  index: Ou sinon il y a aussi ceux-là
+  empty: Aucuns acteurs enregistrés
+  program: Séries dans lesquelles on a pu le voir
+  program_empty: Aucune série avec cet acteur
+  back: Retour à la liste des acteurs
+
+general:
+  back: Retour à l'accueil
+
+sign_in: Connexion
+email: Adresse mail
+password: Mot de passe
+login: Se connecter
