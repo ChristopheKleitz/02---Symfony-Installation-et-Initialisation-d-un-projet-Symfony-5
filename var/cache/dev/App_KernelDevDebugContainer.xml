@@ -5766,7 +5766,7 @@
         <argument key="user" type="service" id=".errored..service_locator.hEwcf7A.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.W6qOHGz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.J21.bOp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActorController::show" type="service" id=".service_locator.3nrNJeC"/>
@@ -5775,6 +5775,7 @@
         <argument key="App\Controller\CommentController::edit" type="service" id=".service_locator.Vc6vB.a"/>
         <argument key="App\Controller\CommentController::index" type="service" id=".service_locator.D_7y3F7"/>
         <argument key="App\Controller\CommentController::show" type="service" id=".service_locator.Vc6vB.a"/>
+        <argument key="App\Controller\DefaultController::navbar" type="service" id=".service_locator.zAmj.kw"/>
         <argument key="App\Controller\EpisodeController::delete" type="service" id=".service_locator.OKz7Vr9"/>
         <argument key="App\Controller\EpisodeController::edit" type="service" id=".service_locator.bBk2hOy"/>
         <argument key="App\Controller\EpisodeController::index" type="service" id=".service_locator.._zoICr"/>
@@ -5811,6 +5812,7 @@
         <argument key="App\Controller\CommentController:edit" type="service" id=".service_locator.Vc6vB.a"/>
         <argument key="App\Controller\CommentController:index" type="service" id=".service_locator.D_7y3F7"/>
         <argument key="App\Controller\CommentController:show" type="service" id=".service_locator.Vc6vB.a"/>
+        <argument key="App\Controller\DefaultController:navbar" type="service" id=".service_locator.zAmj.kw"/>
         <argument key="App\Controller\EpisodeController:delete" type="service" id=".service_locator.OKz7Vr9"/>
         <argument key="App\Controller\EpisodeController:edit" type="service" id=".service_locator.bBk2hOy"/>
         <argument key="App\Controller\EpisodeController:index" type="service" id=".service_locator.._zoICr"/>
@@ -6355,12 +6357,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.W6qOHGz"/>
+      <argument type="service" id=".service_locator.J21.bOp"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.W6qOHGz"/>
+      <argument type="service" id=".service_locator.J21.bOp"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6785,7 +6787,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.W6qOHGz"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.J21.bOp"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
